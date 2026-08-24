@@ -1,0 +1,208 @@
+# CLAUDE.md — engineering-portfolio
+
+Guidance for Claude Code working in this repository.
+
+---
+
+## Project
+
+Personal engineering portfolio for Maël Lacour, rewritten in Next.js.
+Replaces a Nuxt 3 site (Nuxt UI Pro + Nuxt Content) currently live at
+`www.maellacour.com`.
+
+- **Legacy source (read-only reference):** `/home/eyp/Projects/portfolios/personal-portfolio`
+- **This project:** `/home/eyp/Projects/portfolios/engineering-portfolio`
+
+The legacy Nuxt project stays in production during the migration. **Never
+modify it.** Read from it freely.
+
+A separate real-estate site may live alongside this one later. Keep this
+repository scoped to the engineering identity only.
+
+---
+
+## Behavioral Guidelines
+
+> These guidelines bias toward caution over speed. For trivial tasks, use judgment.
+
+### 1. Think Before Coding
+
+**Don't assume. Don't hide confusion. Surface tradeoffs.**
+
+Before implementing:
+- State your assumptions explicitly. If uncertain, ask.
+- If multiple interpretations exist, present them — don't pick silently.
+- If a simpler approach exists, say so. Push back when warranted.
+- If something is unclear, stop. Name what's confusing. Ask.
+
+### 2. Simplicity First
+
+**Minimum code that solves the problem. Nothing speculative.**
+
+- No features beyond what was asked.
+- No abstractions for single-use code.
+- No "flexibility" or "configurability" that wasn't requested.
+- No error handling for impossible scenarios.
+- If you write 200 lines and it could be 50, rewrite it.
+
+Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, simplify.
+
+### 3. Surgical Changes
+
+**Touch only what you must. Clean up only your own mess.**
+
+When editing existing code:
+- Don't "improve" adjacent code, comments, or formatting.
+- Don't refactor things that aren't broken.
+- Match existing style, even if you'd do it differently.
+- If you notice unrelated dead code, mention it — don't delete it.
+
+When your changes create orphans:
+- Remove imports/variables/functions that YOUR changes made unused.
+- Don't remove pre-existing dead code unless asked.
+
+The test: every changed line should trace directly to the user's request.
+
+### 4. Git Commits
+
+- Conventional Commits, one commit per logical step. No big-bang diffs.
+- Never add a `Co-Authored-By: Claude` trailer to commit messages.
+
+### 5. Goal-Driven Execution
+
+**Define success criteria. Loop until verified.**
+
+Transform tasks into verifiable goals:
+- "Add validation" → "Write tests for invalid inputs, then make them pass"
+- "Fix the bug" → "Write a test that reproduces it, then make it pass"
+- "Refactor X" → "Ensure tests pass before and after"
+
+For multi-step tasks, state a brief plan:
+
+```
+1. [Step] → verify: [check]
+2. [Step] → verify: [check]
+3. [Step] → verify: [check]
+```
+
+---
+
+## Who this site is for
+
+Two audiences, in priority order:
+
+1. **Professional contacts met at events or conferences** who look me up on
+   mobile within 24 hours. They need, in ~20 seconds: who I am, what I build,
+   why it's credible, how to reach me.
+2. **Friends and family**, non-technical, who want to see what I actually
+   work on. They need visuals, not jargon.
+
+This is **not** a sales site for consulting services.
+
+<!-- TODO: fill before starting
+- One-line positioning (the headline):
+- Axes by priority (XR/research, AI, full stack, side projects):
+- Consulting mention — keep / drop / soften:
+- Tone (sober and institutional / direct and personal / other):
+-->
+
+---
+
+## Stack
+
+- Next.js (App Router) + TypeScript
+- Tailwind CSS
+- shadcn/ui
+- Velite — markdown/MDX content layer with typed schemas
+- next-cloudinary — image delivery (existing Cloudinary account)
+- Next Metadata API for SEO
+
+**Do not use Contentlayer** — unmaintained.
+
+Never assume version numbers. Check current stable versions and mutual
+compatibility before pinning anything in `package.json`. Flag non-trivial
+choices instead of deciding silently.
+
+<!-- TODO: fill in once the stack is pinned
+- Node version:
+- Package manager:
+- Hosting / deploy target:
+-->
+
+---
+
+## Content system
+
+All editable content lives in markdown/MDX or YAML under `content/`, validated
+by Velite schemas. **Adding or editing content must never require touching
+application code.**
+
+- `content/projects/` — one file per project
+- `content/notes/` — written pieces (scaffolded, empty for now)
+- Brand copy — centralised in a single file, see below
+
+Project entries need a media slot (screenshots, GIFs, short videos). The
+legacy site has no visuals; this one must support them from the start.
+
+Preserve existing URLs: `/projects/[slug]` must match the legacy site exactly.
+Any change requires an explicit redirect.
+
+---
+
+## Copy rules
+
+Brand copy (headline, subtitle, About, CTAs, meta descriptions) is **written by
+Maël, not by Claude**. Where copy is missing, insert a literal `TODO_COPY`
+placeholder and move on. Never invent marketing text.
+
+Retired formulations — do not reuse:
+- "ambitious founders"
+- "let's build something that matters"
+- "available for consulting"
+
+Project descriptions ported from the legacy site are carried over **verbatim**.
+Do not rewrite them.
+
+Where copy is written: plain verbs, sentence case, active voice, no filler.
+Specific beats clever. Name things the way a reader recognises them, not the
+way the system is built.
+
+---
+
+## Design
+
+<!-- TODO: fill in — palette, typefaces, layout concept, signature element -->
+
+Guardrails that apply regardless of direction:
+
+- **shadcn/ui for primitives only** — buttons, navigation, dialog, dark mode,
+  focus states. Anything that must be accessible and isn't worth rewriting.
+- **Hero, project cards and page layout are written by hand in Tailwind.**
+  Do not use shadcn blocks or templates for these. Default shadcn styling is
+  recognisable on sight and reads as templated; the identity of the site lives
+  in exactly these components.
+- Spend boldness in one place. One memorable element, everything around it
+  quiet.
+- Quality floor, unannounced: responsive down to mobile, visible keyboard
+  focus, `prefers-reduced-motion` respected.
+- Mobile first — most visitors arrive on a phone.
+
+---
+
+## Conventions
+
+- TypeScript strict; no `any` without a comment explaining why.
+- Structure ready for i18n (EN now, FR possible later) without implementing
+  i18n yet.
+- ESLint + Prettier enforced; no commits that fail lint.
+- `CHANGELOG.md` in Keep a Changelog format.
+
+---
+
+## Do not
+
+- Modify the legacy Nuxt project.
+- Write brand copy.
+- Add analytics, tracking, or third-party scripts without asking.
+- Introduce a dependency that duplicates something already in the stack.
+- Break an existing public URL without an accompanying redirect.
