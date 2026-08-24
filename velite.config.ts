@@ -6,7 +6,7 @@ import remarkBreaks from "remark-breaks";
 const media = s.object({
   type: s.enum(["image", "video"]).default("image"),
   src: s.string(),
-  alt: s.string().optional(),
+  alt: s.string(),
 });
 
 const site = defineCollection({

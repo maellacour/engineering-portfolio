@@ -1,10 +1,17 @@
-import { home } from "@velite";
+import { Hero } from "@/components/home/hero";
+import { Projects } from "@/components/home/projects";
+import { Trust } from "@/components/home/trust";
+import { About } from "@/components/home/about";
+import { Contact } from "@/components/home/contact";
 
 export default function HomePage() {
   return (
-    <section className="py-16">
-      <h1 className="text-4xl font-bold tracking-tight">{home.hero.title}</h1>
-      <p className="text-muted-foreground mt-4">{home.hero.description}</p>
-    </section>
+    <>
+      <Hero />
+      <Projects />
+      <Trust />
+      <About />
+      <Contact />
+    </>
   );
 }

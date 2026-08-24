@@ -18,6 +18,7 @@ gallery:
 video:
   type: video
   src: EcoRescue.Video.mov
+  alt: EcoRescue gameplay video
 blocks:
   - title: Research partner
     body: |

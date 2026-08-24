@@ -15,6 +15,7 @@ gallery:
 video:
   type: video
   src: NeuroTrainer-resized_ui8ak9.mp4
+  alt: NeuroTrainer demo video
 blocks:
   - title: Clinical partner
     body: |

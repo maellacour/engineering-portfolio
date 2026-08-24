@@ -15,6 +15,7 @@ gallery:
 video:
   type: video
   src: tiktik.com.video-com_zl3hir.mp4
+  alt: TikTik gameplay video
 blocks:
   - title: Research context
     body: |
