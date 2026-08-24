@@ -1,0 +1,26 @@
+# Institutions & recognition. Names and taglines are factual credentials,
+# carried over verbatim. Section title/description are brand copy (TODO_COPY).
+# `icon` maps to an icon in the Trust component (lucide, or simple-icons for unity).
+
+title: TODO_COPY
+description: TODO_COPY
+
+items:
+  - icon: graduation-cap
+    name: EPFL
+    tagline: VR & neuroscience research
+  - icon: library
+    name: UNIGE
+    tagline: Cognitive science collaborations
+  - icon: heart
+    name: HUG
+    tagline: Clinical research tooling
+  - icon: plane
+    name: Airbus
+    tagline: Dragonfly · Award for Excellence
+  - icon: unity
+    name: Unity Certified Expert
+    tagline: Programmer certification
+  - icon: graduation-cap
+    name: Arts et Métiers ParisTech
+    tagline: Grande École · Engineer

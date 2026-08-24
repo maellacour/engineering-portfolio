@@ -1,0 +1,34 @@
+# Home page content. All brand copy is TODO_COPY — written by Maël.
+# Image values are Cloudinary public IDs carried over from the legacy site.
+
+title: TODO_COPY # <title> / meta title
+description: TODO_COPY # meta description
+ogImage: profil-with-headset_kltqvr.jpg
+
+hero:
+  title: TODO_COPY
+  description: TODO_COPY
+  image:
+    src: profil-with-headset_kltqvr.jpg
+    alt: Mael Lacour
+  cta:
+    label: TODO_COPY
+    href: /LACOUR.Mael.Resume.No-Tel.pdf
+
+projects:
+  title: TODO_COPY
+  description: TODO_COPY
+
+about:
+  title: TODO_COPY
+  body: TODO_COPY
+  image:
+    src: mael.office.square.grayscale_enkzmk.jpg
+    alt: Mael Lacour in his office
+
+contact:
+  title: TODO_COPY
+  body: TODO_COPY
+  image:
+    src: parapente2_zeuwf9
+    alt: Paragliding over Geneva Lake
