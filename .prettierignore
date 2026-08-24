@@ -8,5 +8,6 @@ package-lock.json
 # Authored docs — not machine-formatted
 CLAUDE.md
 MIGRATION_PLAN.md
+COPY_TODO.md
 CHANGELOG.md
 README.md

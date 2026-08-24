@@ -4,7 +4,6 @@ import { notes } from "@velite";
 
 export const metadata: Metadata = {
   title: "Notes",
-  description: "TODO_COPY",
 };
 
 const isDev = process.env.NODE_ENV === "development";
@@ -17,9 +16,6 @@ export default function NotesPage() {
   return (
     <section className="py-16">
       <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Notes</h1>
-      <p className="text-muted-foreground mt-3 max-w-xl text-pretty">
-        TODO_COPY
-      </p>
 
       {published.length === 0 ? (
         <p className="text-muted-foreground mt-12 text-sm">Nothing here yet.</p>
