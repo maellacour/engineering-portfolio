@@ -1,0 +1,13 @@
+.next
+out
+build
+node_modules
+package-lock.json
+.velite
+
+# Authored docs — not machine-formatted
+CLAUDE.md
+CONTEXT.md
+MIGRATION_PLAN.md
+CHANGELOG.md
+README.md

@@ -1,0 +1,75 @@
+# Home page content. Image values are Cloudinary public IDs.
+
+title: "Maël Lacour — Software for brain research | XR, AI & full stack, Geneva"
+description: >-
+  Geneva-based lead engineer building XR games, VR tools and data pipelines for
+  cognitive-science research — with AI woven into the practice.
+ogImage: profil-with-headset_kltqvr.jpg
+
+hero:
+  title: I build the software behind brain research.
+  description: >-
+    XR games, VR tools and data pipelines for cognitive-science studies in
+    Geneva — engineered with AI in the loop, from code agents to transcription
+    pipelines.
+  image:
+    src: profil-with-headset_kltqvr.jpg
+    alt: Maël Lacour
+  links:
+    - label: See the work
+      href: /#projects
+    - label: Get in touch
+      href: /#contact
+
+build:
+  title: What I build
+  items:
+    - title: Research games & XR
+      body: >-
+        Cognitive-training games and VR tools used in studies across Geneva,
+        Haifa and Miami — engaging enough that participants come back, reliable
+        enough for clinical settings. Unity Certified Expert.
+    - title: AI-augmented engineering
+      body: >-
+        I put AI to work on real codebases and real workflows: code agents on
+        Unity and Flutter projects, a transcription-to-notes pipeline my whole
+        team uses, shared conventions for building research software with AI.
+        Currently going deeper: fine-tuning speech models for scientific
+        vocabulary.
+    - title: Full stack & infrastructure
+      body: >-
+        The unglamorous layer that keeps studies running: backends, data
+        pipelines, CI/CD, cloud. If participants can log in on day one of a
+        study, this is why.
+
+projects:
+  title: Selected work
+
+about:
+  title: About
+  body: >-
+    Grande École engineer (Arts et Métiers), I started in aerospace and found my
+    place where software meets science. Since 2020 I've led XR and full-stack
+    work at the Fondation Campus Biotech Geneva — turning research protocols into
+    software real people use: cognitive-training games, VR tools, and the
+    infrastructure that keeps multi-site studies running, with UNIGE, HUG and
+    university labs across Europe.
+
+
+    Lately I've been going deeper on the AI side: code agents on real codebases,
+    a transcription pipeline my team relies on, and training toward fine-tuning
+    speech models for scientific vocabulary. When I'm not building, I'm probably
+    paragliding above it.
+  image:
+    src: mael.office.square.grayscale_enkzmk.jpg
+    alt: Maël Lacour in his office
+
+contact:
+  title: Get in touch
+  body: >-
+    Open to speaking and collaborations — especially if you're working out how
+    AI fits into your engineering practice. I like comparing notes with anyone
+    building research software or putting AI to work on real codebases.
+  image:
+    src: parapente2_zeuwf9
+    alt: Paragliding over Geneva Lake

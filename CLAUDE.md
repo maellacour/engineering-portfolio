@@ -19,6 +19,8 @@ modify it.** Read from it freely.
 A separate real-estate site may live alongside this one later. Keep this
 repository scoped to the engineering identity only.
 
+See CONTEXT.md for background on who this site represents and where it's heading
+
 ---
 
 ## Behavioral Guidelines
@@ -151,9 +153,11 @@ Any change requires an explicit redirect.
 
 ## Copy rules
 
-Brand copy (headline, subtitle, About, CTAs, meta descriptions) is **written by
-Maël, not by Claude**. Where copy is missing, insert a literal `TODO_COPY`
-placeholder and move on. Never invent marketing text.
+Brand copy is **drafted by Claude from `CONTEXT.md`, then reviewed and edited by
+Maël**. Write plainly and only from facts in `CONTEXT.md` — never invent claims
+or marketing gloss, and honour the boundaries there (no services offer, no
+inflation, research at the public level only). When the context doesn't cover
+something, ask rather than guess.
 
 Retired formulations — do not reuse:
 - "ambitious founders"
@@ -171,16 +175,23 @@ way the system is built.
 
 ## Design
 
-<!-- TODO: fill in — palette, typefaces, layout concept, signature element -->
+**Direction: "Immersive."** Deep-dark canvas, indigo primary. Signature element:
+a cursor-reactive indigo mesh glow behind the hero (subtle, static-friendly on
+touch). Display type in Space Grotesk, body in DM Sans, labels/eyebrows in
+JetBrains Mono. Portrait gets a duotone/halo treatment; project cards are
+image-forward with a gradient scrim. Depth via layering and `backdrop-filter`.
 
 Guardrails that apply regardless of direction:
 
-- **shadcn/ui for primitives only** — buttons, navigation, dialog, dark mode,
-  focus states. Anything that must be accessible and isn't worth rewriting.
-- **Hero, project cards and page layout are written by hand in Tailwind.**
-  Do not use shadcn blocks or templates for these. Default shadcn styling is
-  recognisable on sight and reads as templated; the identity of the site lives
-  in exactly these components.
+- **Hand-written Tailwind is the default.** The site's identity — hero, project
+  cards, layout, most UI — is written by hand. Reach for a headless primitive
+  library (Radix / Base UI / shadcn) only when a component genuinely needs
+  robust accessibility not worth rebuilding (dialog, dropdown, combobox,
+  tooltip). It's a tool, not a mandate — don't force it where hand-writing is
+  simpler.
+- **Never ship default-styled shadcn blocks/templates for identity components.**
+  Default shadcn styling reads as templated on sight; if you do use a primitive,
+  restyle it fully to the site's system.
 - Spend boldness in one place. One memorable element, everything around it
   quiet.
 - Quality floor, unannounced: responsive down to mobile, visible keyboard
