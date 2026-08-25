@@ -153,9 +153,11 @@ Any change requires an explicit redirect.
 
 ## Copy rules
 
-Brand copy (headline, subtitle, About, CTAs, meta descriptions) is **written by
-Maël, not by Claude**. Where copy is missing, insert a literal `TODO_COPY`
-placeholder and move on. Never invent marketing text.
+Brand copy is **drafted by Claude from `CONTEXT.md`, then reviewed and edited by
+Maël**. Write plainly and only from facts in `CONTEXT.md` — never invent claims
+or marketing gloss, and honour the boundaries there (no services offer, no
+inflation, research at the public level only). When the context doesn't cover
+something, ask rather than guess.
 
 Retired formulations — do not reuse:
 - "ambitious founders"

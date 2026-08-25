@@ -2,8 +2,9 @@
 
 Background briefing for the agent working on this site. This is **context, not
 copy**: use it to make better decisions about structure, emphasis, project
-descriptions, image alt text, and ordering. Brand copy itself comes from
-COPY.md and only from there — the rules in CLAUDE.md still apply.
+descriptions, image alt text, and ordering. Brand copy is drafted from this
+context, written into the `content/` files, and approved by Maël — the
+boundaries below still apply.
 
 ---
 
@@ -78,8 +79,8 @@ heading.*
 
 1. **Near term**: I want to open the door to AI-related services. Whether
    they'll be independent or carried by FCBG is **not decided** — so the site
-   signals capability and openness, never a commercial offer. (See the
-   "Later" section of COPY.md; do not publish either scenario.)
+   signals capability and openness, never a commercial offer. (Do not publish
+   any services offer until this is settled and cleared with FCBG.)
 2. **Speaking**: I'm starting to speak publicly — first panel on AI in
    engineering practice at HPE Explore Geneva, Sept 24, 2026. People will
    look this site up on their phones right after hearing me. The written

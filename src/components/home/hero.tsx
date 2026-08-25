@@ -72,7 +72,7 @@ export function Hero() {
 
         <motion.h1
           {...rise(0.1)}
-          className="font-display text-foreground text-[2.5rem] leading-[1.05] font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl"
+          className="font-display text-foreground text-4xl leading-[1.05] font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl"
         >
           {hero.title}
         </motion.h1>
