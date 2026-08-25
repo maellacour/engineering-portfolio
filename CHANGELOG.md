@@ -6,6 +6,11 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Scroll-reveal animations across the home sections — a subtle rise + fade +
+  de-blur, with staggered cards. Respects `prefers-reduced-motion`.
+
 ### Fixed
 
 - Restore the legacy favicon, logo and résumé PDF (missing from the initial

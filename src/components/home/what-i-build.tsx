@@ -1,4 +1,5 @@
 import { home } from "@velite";
+import { Reveal, RevealStagger, RevealItem } from "@/components/reveal";
 
 export function WhatIBuild() {
   const { build } = home;
@@ -8,16 +9,18 @@ export function WhatIBuild() {
       className="scroll-mt-24 py-16 sm:py-24"
       aria-labelledby="build-heading"
     >
-      <h2
-        id="build-heading"
-        className="font-display max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl"
-      >
-        {build.title}
-      </h2>
+      <Reveal>
+        <h2
+          id="build-heading"
+          className="font-display max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl"
+        >
+          {build.title}
+        </h2>
+      </Reveal>
 
-      <div className="mt-10 grid gap-4 md:grid-cols-3">
+      <RevealStagger className="mt-10 grid gap-4 md:grid-cols-3">
         {build.items.map((item, i) => (
-          <div
+          <RevealItem
             key={item.title}
             className="border-border/60 hover:border-primary/40 rounded-2xl border bg-white/[0.02] p-6 backdrop-blur transition-colors"
           >
@@ -30,9 +33,9 @@ export function WhatIBuild() {
             <p className="text-muted-foreground mt-2 leading-relaxed">
               {item.body}
             </p>
-          </div>
+          </RevealItem>
         ))}
-      </div>
+      </RevealStagger>
     </section>
   );
 }
