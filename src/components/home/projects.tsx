@@ -73,9 +73,19 @@ export function Projects() {
             <Link
               key={project.slug}
               href={project.url}
-              className="group border-border/60 hover:text-primary flex items-center gap-4 border-b py-4 transition-colors"
+              className="group border-border/60 flex items-center gap-4 border-b py-3 transition-colors"
             >
-              <span className="font-display flex-1 text-lg font-medium">
+              <div className="bg-muted aspect-[4/3] w-20 shrink-0 overflow-hidden rounded-lg sm:w-24">
+                <CldImage
+                  src={project.cover}
+                  alt={project.title}
+                  width={240}
+                  height={180}
+                  sizes="6rem"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <span className="font-display group-hover:text-primary flex-1 text-lg font-medium transition-colors">
                 {project.title}
               </span>
               <span className="text-muted-foreground hidden font-mono text-xs sm:inline">

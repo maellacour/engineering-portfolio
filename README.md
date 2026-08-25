@@ -48,8 +48,8 @@ All content is in `content/` — **no code changes needed** to add or edit it.
 - `content/projects/*.md` — one file per project (see an existing one for the shape)
 - `content/notes/*.mdx` — written pieces (empty for now)
 
-Brand copy is authored in [`COPY.md`](./COPY.md); background that informs
-structure and emphasis lives in [`CONTEXT.md`](./CONTEXT.md).
+Copy lives directly in the `content/` files; [`CONTEXT.md`](./CONTEXT.md)
+captures the background that informs it.
 
 ### Adding a project
 

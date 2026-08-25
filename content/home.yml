@@ -48,10 +48,18 @@ projects:
 about:
   title: About
   body: >-
-    Grande École engineer (Arts et Métiers), started in aerospace, found my
-    place where software meets science. Six years building research tools in
-    Geneva with UNIGE, HUG and university labs across Europe. When I'm not
-    building, I'm probably paragliding above it.
+    Grande École engineer (Arts et Métiers), I started in aerospace and found my
+    place where software meets science. Since 2020 I've led XR and full-stack
+    work at the Fondation Campus Biotech Geneva — turning research protocols into
+    software real people use: cognitive-training games, VR tools, and the
+    infrastructure that keeps multi-site studies running, with UNIGE, HUG and
+    university labs across Europe.
+
+
+    Lately I've been going deeper on the AI side: code agents on real codebases,
+    a transcription pipeline my team relies on, and training toward fine-tuning
+    speech models for scientific vocabulary. When I'm not building, I'm probably
+    paragliding above it.
   image:
     src: mael.office.square.grayscale_enkzmk.jpg
     alt: Maël Lacour in his office
@@ -59,8 +67,9 @@ about:
 contact:
   title: Get in touch
   body: >-
-    Open to speaking and collaborations — especially if you're figuring out how
-    AI fits into your engineering practice.
+    Open to speaking and collaborations — especially if you're working out how
+    AI fits into your engineering practice. I like comparing notes with anyone
+    building research software or putting AI to work on real codebases.
   image:
     src: parapente2_zeuwf9
     alt: Paragliding over Geneva Lake

@@ -18,7 +18,7 @@ export function About() {
             {about.title}
           </h2>
           <div
-            className="prose prose-zinc dark:prose-invert mt-6 max-w-none"
+            className="prose prose-lg prose-zinc dark:prose-invert mt-6 max-w-none"
             dangerouslySetInnerHTML={{ __html: about.body }}
           />
         </div>
