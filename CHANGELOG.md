@@ -6,6 +6,11 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- Restore the legacy favicon, logo and résumé PDF (missing from the initial
+  scaffold) and remove the create-next-app demo SVGs.
+
 ## [0.1.0] — 2026-08-25
 
 Initial preview release — the Next.js rewrite of the portfolio. The legacy Nuxt
@@ -29,7 +34,6 @@ site remains in production until the cutover (1.0.0).
 - SEO via the Next Metadata API, dynamic Open Graph images (`next/og`),
   `sitemap.xml`, `robots.txt`, and a custom 404 page.
 - Cloudinary image and video delivery via `next-cloudinary`.
-- Brand favicon, logo, and résumé PDF carried over from the legacy site.
 - Respects `prefers-reduced-motion` throughout; visible keyboard focus.
 
 [Unreleased]: https://github.com/maellacour/engineering-portfolio/compare/v0.1.0...HEAD
