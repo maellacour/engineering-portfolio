@@ -43,14 +43,13 @@ npm run dev                  # http://localhost:3000
 
 All content is in `content/` — **no code changes needed** to add or edit it.
 
-- `content/site.yml` — email, socials, nav, footer, availability
-- `content/home.yml` — hero, section copy, about, contact (brand copy)
-- `content/trust.yml` — institutions & recognition
+- `content/site.yml` — email, socials, nav, footer
+- `content/home.yml` — hero, "What I build", selected-work heading, about, contact
 - `content/projects/*.md` — one file per project (see an existing one for the shape)
 - `content/notes/*.mdx` — written pieces (empty for now)
 
-Brand copy not yet written is marked `TODO_COPY`. See
-[`COPY_TODO.md`](./COPY_TODO.md) for the full checklist.
+Brand copy is authored in [`COPY.md`](./COPY.md); background that informs
+structure and emphasis lives in [`CONTEXT.md`](./CONTEXT.md).
 
 ### Adding a project
 
