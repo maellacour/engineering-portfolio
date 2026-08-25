@@ -11,7 +11,7 @@ export function ProjectHeader({
 }) {
   return (
     <header className="mb-8">
-      <h1 className="text-4xl font-bold tracking-tight text-balance sm:text-5xl">
+      <h1 className="font-display text-4xl font-bold tracking-tight text-balance sm:text-5xl">
         {title}
       </h1>
       <div className="text-muted-foreground mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm">

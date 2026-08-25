@@ -26,7 +26,7 @@ export function Trust() {
       <div className="max-w-2xl">
         <h2
           id="trust-heading"
-          className="text-3xl font-bold tracking-tight sm:text-4xl"
+          className="font-display text-3xl font-bold tracking-tight sm:text-4xl"
         >
           {trust.title}
         </h2>
@@ -35,20 +35,20 @@ export function Trust() {
         </p>
       </div>
 
-      <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {trust.items.map((item) => {
           const Icon = icons[item.icon] ?? GraduationCap;
           return (
             <li
               key={item.name}
-              className="border-border/60 bg-card flex items-start gap-4 rounded-xl border p-5"
+              className="border-border/60 hover:border-primary/40 flex items-start gap-4 rounded-xl border bg-white/[0.02] p-5 backdrop-blur transition-colors"
             >
-              <span className="bg-primary/10 flex size-10 shrink-0 items-center justify-center rounded-lg">
+              <span className="bg-primary/10 ring-primary/20 flex size-10 shrink-0 items-center justify-center rounded-lg ring-1">
                 <Icon className="text-primary size-5" />
               </span>
               <div>
                 <p className="font-semibold">{item.name}</p>
-                <p className="text-muted-foreground mt-0.5 text-sm">
+                <p className="text-muted-foreground mt-0.5 font-mono text-xs">
                   {item.tagline}
                 </p>
               </div>

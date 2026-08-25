@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { DM_Sans, Geist_Mono } from "next/font/google";
+import { DM_Sans, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { defaultLocale } from "@/lib/i18n";
 import { ThemeProvider } from "@/components/theme-provider";
+import { BackgroundMesh } from "@/components/background-mesh";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 
@@ -11,8 +12,13 @@ const dmSans = DM_Sans({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-display",
+  subsets: ["latin"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
 });
 
@@ -30,16 +36,19 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang={defaultLocale} suppressHydrationWarning>
-      <body className={`${dmSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${dmSans.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
-          <div className="border-border/60 mx-auto flex min-h-dvh max-w-5xl flex-col px-4 sm:border-x sm:px-6">
+          <BackgroundMesh />
+          <div className="relative z-10 mx-auto flex min-h-dvh max-w-6xl flex-col px-5 sm:px-8">
             <SiteHeader />
-            <main className="flex-1 pt-20">{children}</main>
+            <main className="flex-1 pt-24">{children}</main>
             <SiteFooter />
           </div>
         </ThemeProvider>

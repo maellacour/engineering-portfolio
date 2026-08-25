@@ -1,6 +1,4 @@
 @import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
@@ -9,8 +7,9 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-display: var(--font-display);
+  --font-heading: var(--font-display);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -85,11 +84,11 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: oklch(0.09 0.012 280);
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
+  --card: oklch(0.145 0.018 280);
   --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
+  --popover: oklch(0.145 0.018 280);
   --popover-foreground: oklch(0.985 0 0);
   --primary: oklch(0.585 0.233 277.117);
   --primary-foreground: oklch(0.985 0 0);
@@ -127,5 +126,35 @@
   }
   html {
     @apply font-sans;
+  }
+}
+
+/* Immersive background mesh — the signature element. Strong in dark, absent in
+   light (kept clean). --mx/--my are updated on cursor move on fine pointers. */
+:root {
+  --mesh-1: transparent;
+  --mesh-2: transparent;
+}
+.dark {
+  --mesh-1: oklch(0.62 0.2 277 / 0.2);
+  --mesh-2: oklch(0.6 0.2 317 / 0.12);
+}
+.bg-mesh {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      600px circle at var(--mx, 50%) var(--my, 8%),
+      var(--mesh-1),
+      transparent 60%
+    ),
+    radial-gradient(720px circle at 88% 96%, var(--mesh-2), transparent 55%);
+  transition: background 0.25s linear;
+}
+@media (prefers-reduced-motion: reduce) {
+  .bg-mesh {
+    transition: none;
   }
 }

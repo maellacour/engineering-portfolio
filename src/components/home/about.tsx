@@ -13,7 +13,7 @@ export function About() {
         <div>
           <h2
             id="about-heading"
-            className="text-3xl font-bold tracking-tight sm:text-4xl"
+            className="font-display text-3xl font-bold tracking-tight sm:text-4xl"
           >
             {about.title}
           </h2>

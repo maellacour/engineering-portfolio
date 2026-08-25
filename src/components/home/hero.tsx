@@ -2,7 +2,7 @@
 
 import { CldImage } from "@/components/cld";
 import { motion, useReducedMotion } from "motion/react";
-import { Download } from "lucide-react";
+import { Download, ArrowDown } from "lucide-react";
 import { home, site } from "@velite";
 import { buttonVariants } from "@/components/ui/button";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
@@ -14,86 +14,98 @@ export function Hero() {
   const { hero } = home;
   const { availability, socials } = site;
 
-  // Entrance animation, disabled under prefers-reduced-motion.
   const rise = (delay: number) =>
     reduce
       ? {}
       : {
-          initial: { opacity: 0, y: 14, filter: "blur(8px)" },
+          initial: { opacity: 0, y: 16, filter: "blur(8px)" },
           animate: { opacity: 1, y: 0, filter: "blur(0px)" },
           transition: { duration: 0.6, delay },
         };
 
   return (
-    <section className="grid items-center gap-8 py-12 sm:py-16 lg:grid-cols-[1fr_auto] lg:gap-16">
-      {/* Portrait — first on mobile, right on desktop. The one bold element. */}
+    <section className="relative grid items-center gap-10 py-8 sm:py-14 lg:grid-cols-[1.05fr_0.85fr] lg:gap-14">
+      {/* Portrait — first on mobile, right on desktop */}
       <motion.div
         {...(reduce
           ? {}
           : {
               initial: { opacity: 0, scale: 1.04, filter: "blur(12px)" },
               animate: { opacity: 1, scale: 1, filter: "blur(0px)" },
-              transition: { duration: 0.7, delay: 0.1 },
+              transition: { duration: 0.8, delay: 0.1 },
             })}
-        className="relative mx-auto w-56 shrink-0 sm:w-72 lg:order-last lg:mx-0"
+        className="relative order-1 mx-auto w-60 sm:w-72 lg:order-2 lg:mx-0 lg:w-full lg:max-w-sm"
       >
         <div
           aria-hidden
-          className="bg-primary/25 absolute -inset-4 -z-10 rounded-full blur-3xl"
+          className="absolute -inset-[18%] animate-[spin_16s_linear_infinite] rounded-full opacity-50 blur-3xl motion-reduce:animate-none"
+          style={{
+            background:
+              "conic-gradient(from 90deg, transparent, var(--primary), transparent 62%)",
+          }}
         />
-        <CldImage
-          src={hero.image.src}
-          alt={hero.image.alt}
-          width={640}
-          height={640}
-          sizes="(max-width: 1024px) 18rem, 18rem"
-          className="ring-border/60 aspect-square w-full rounded-3xl object-cover shadow-2xl ring-1"
-          priority
-        />
+        <div className="border-border/60 relative aspect-[4/5] overflow-hidden rounded-2xl border backdrop-blur">
+          <CldImage
+            src={hero.image.src}
+            alt={hero.image.alt}
+            width={640}
+            height={800}
+            sizes="(max-width: 1024px) 18rem, 24rem"
+            className="h-full w-full object-cover"
+            priority
+          />
+          <div
+            aria-hidden
+            className="bg-primary absolute inset-0 opacity-20 mix-blend-color"
+          />
+        </div>
       </motion.div>
 
-      <div className="text-center lg:text-left">
+      {/* Text */}
+      <div className="order-2 flex flex-col items-start lg:order-1">
+        {availability.available && (
+          <motion.span
+            {...rise(0)}
+            className="border-border/60 mb-6 inline-flex items-center gap-2 rounded-full border bg-white/[0.03] px-3 py-1.5 backdrop-blur"
+          >
+            <span className="relative flex size-2">
+              <span className="bg-primary absolute inline-flex size-full animate-ping rounded-full opacity-75 motion-reduce:animate-none" />
+              <span className="bg-primary relative inline-flex size-2 rounded-full" />
+            </span>
+            <span className="text-muted-foreground font-mono text-xs tracking-wide uppercase">
+              {availability.availableLabel}
+            </span>
+          </motion.span>
+        )}
+
         <motion.h1
           {...rise(0.1)}
-          className="text-4xl font-bold tracking-tight text-balance sm:text-5xl"
+          className="font-display from-foreground to-primary bg-gradient-to-br bg-clip-text text-4xl leading-[1.02] font-bold tracking-tight text-balance text-transparent sm:text-5xl lg:text-6xl"
         >
           {hero.title}
         </motion.h1>
 
         <motion.p
           {...rise(0.25)}
-          className="text-muted-foreground mt-4 max-w-xl text-lg text-pretty"
+          className="text-muted-foreground mt-5 max-w-md text-lg text-pretty"
         >
           {hero.description}
         </motion.p>
 
         <motion.div
           {...rise(0.4)}
-          className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap lg:items-start"
+          className="mt-8 flex flex-wrap items-center gap-3"
         >
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <a
-              href={hero.cta.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={buttonVariants({ size: "lg" })}
-            >
-              <Download className="size-4" />
-              {hero.cta.label}
-            </a>
-
-            {availability.available && (
-              <span className="text-muted-foreground inline-flex items-center gap-2 text-sm">
-                <span className="relative flex size-2">
-                  <span className="bg-primary absolute inline-flex size-full animate-ping rounded-full opacity-75" />
-                  <span className="bg-primary relative inline-flex size-2 rounded-full" />
-                </span>
-                {availability.availableLabel}
-              </span>
-            )}
-          </div>
-
-          <div className="flex items-center gap-1">
+          <a
+            href={hero.cta.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={buttonVariants({ size: "lg" })}
+          >
+            <Download className="size-4" />
+            {hero.cta.label}
+          </a>
+          <div className="ml-1 flex items-center gap-1">
             {socials.map((social) => {
               const Icon = socialIcons[social.icon];
               return (
@@ -111,6 +123,15 @@ export function Hero() {
             })}
           </div>
         </motion.div>
+
+        <a
+          href="#projects"
+          aria-label="Jump to projects"
+          className="text-muted-foreground hover:text-foreground mt-10 hidden items-center gap-2 font-mono text-xs tracking-wide uppercase transition-colors lg:inline-flex"
+        >
+          <ArrowDown className="size-4 animate-bounce motion-reduce:animate-none" />
+          Scroll
+        </a>
       </div>
     </section>
   );

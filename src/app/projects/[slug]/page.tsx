@@ -65,7 +65,7 @@ export default async function ProjectPage({
         )}
 
         <div className="sm:w-2/3">
-          <h2 className="mb-6 text-2xl font-bold tracking-tight">
+          <h2 className="font-display mb-6 text-2xl font-bold tracking-tight">
             {project.challengeTitle}
           </h2>
           <div

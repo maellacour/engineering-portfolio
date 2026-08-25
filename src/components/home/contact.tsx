@@ -25,7 +25,7 @@ export function Contact() {
         <div>
           <h2
             id="contact-heading"
-            className="text-3xl font-bold tracking-tight sm:text-4xl"
+            className="font-display text-3xl font-bold tracking-tight sm:text-4xl"
           >
             {contact.title}
           </h2>

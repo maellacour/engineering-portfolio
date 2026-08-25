@@ -39,7 +39,7 @@ export default async function NotePage({
             day: "numeric",
           })}
         </time>
-        <h1 className="mt-2 text-4xl font-bold tracking-tight text-balance sm:text-5xl">
+        <h1 className="font-display mt-2 text-4xl font-bold tracking-tight text-balance sm:text-5xl">
           {note.title}
         </h1>
       </header>

@@ -22,4 +22,12 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Cloudinary image/video delivery via `next-cloudinary`.
 - `COPY_TODO.md` checklist for brand copy left as `TODO_COPY`.
 
+### Changed
+
+- Adopted the "Immersive" design direction: near-black indigo canvas, a
+  cursor-reactive mesh glow, Space Grotesk display type, duotone hero portrait,
+  and image-forward project cards.
+- Dropped shadcn/ui and Base UI in favour of hand-written components; kept a
+  hand-written `Button`. Headless primitives remain available à la carte.
+
 [Unreleased]: https://github.com/maellacour/engineering-portfolio

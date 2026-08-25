@@ -15,7 +15,9 @@ const published = notes
 export default function NotesPage() {
   return (
     <section className="py-16">
-      <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Notes</h1>
+      <h1 className="font-display text-4xl font-bold tracking-tight sm:text-5xl">
+        Notes
+      </h1>
 
       {published.length === 0 ? (
         <p className="text-muted-foreground mt-12 text-sm">Nothing here yet.</p>
