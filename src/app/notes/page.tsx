@@ -18,6 +18,10 @@ export default function NotesPage() {
       <h1 className="font-display text-4xl font-bold tracking-tight sm:text-5xl">
         Notes
       </h1>
+      <p className="text-muted-foreground mt-3 max-w-xl text-pretty">
+        Field notes on building software for research — and on putting AI to
+        work in real engineering practice.
+      </p>
 
       {published.length === 0 ? (
         <p className="text-muted-foreground mt-12 text-sm">Nothing here yet.</p>

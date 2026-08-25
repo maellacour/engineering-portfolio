@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { projects } from "@velite";
 
-export const alt = "Project — Mael Lacour";
+export const alt = "Project — Maël Lacour";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -32,7 +32,7 @@ export default async function Image({
       }}
     >
       <div style={{ display: "flex", fontSize: 30, opacity: 0.8 }}>
-        {project?.tag ?? "Mael Lacour"}
+        {project?.tag ?? "Maël Lacour"}
       </div>
       <div
         style={{
@@ -42,7 +42,7 @@ export default async function Image({
           lineHeight: 1.1,
         }}
       >
-        {project?.title ?? "Mael Lacour"}
+        {project?.title ?? "Maël Lacour"}
       </div>
       <div
         style={{

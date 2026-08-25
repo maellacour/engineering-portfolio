@@ -1,8 +1,6 @@
 # Global site config — editable without touching code.
-# Functional values (email, links, nav) are carried over from the legacy site.
-# Brand copy is left as TODO_COPY for Maël to fill in.
 
-email: contact.dev@maellacour.com # TODO_COPY: confirm the public contact address
+email: contact.dev@maellacour.com
 resumeUrl: /LACOUR.Mael.Resume.No-Tel.pdf
 
 socials:
@@ -16,15 +14,10 @@ socials:
 nav:
   - label: Home
     href: /
-  - label: Projects
+  - label: Work
     href: /#projects
   - label: Contact
     href: /#contact
 
-availability:
-  available: true
-  availableLabel: TODO_COPY
-  unavailableLabel: TODO_COPY
-
 footer:
-  credits: Mael Lacour
+  credits: Maël Lacour

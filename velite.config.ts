@@ -24,11 +24,6 @@ const site = defineCollection({
       }),
     ),
     nav: s.array(s.object({ label: s.string(), href: s.string() })),
-    availability: s.object({
-      available: s.boolean(),
-      availableLabel: s.string(),
-      unavailableLabel: s.string(),
-    }),
     footer: s.object({ credits: s.string() }),
   }),
 });
@@ -46,9 +41,16 @@ const home = defineCollection({
       title: s.string(),
       description: s.string(),
       image: media,
-      cta: s.object({ label: s.string(), href: s.string() }),
+      links: s.array(s.object({ label: s.string(), href: s.string() })),
     }),
-    projects: s.object({ title: s.string(), description: s.string() }),
+    build: s.object({
+      title: s.string(),
+      items: s.array(s.object({ title: s.string(), body: s.string() })),
+    }),
+    projects: s.object({
+      title: s.string(),
+      description: s.string().optional(),
+    }),
     about: s.object({
       title: s.string(),
       body: s.markdown(),
@@ -59,23 +61,6 @@ const home = defineCollection({
       body: s.markdown(),
       image: media,
     }),
-  }),
-});
-
-const trust = defineCollection({
-  name: "Trust",
-  pattern: "trust.yml",
-  single: true,
-  schema: s.object({
-    title: s.string(),
-    description: s.string(),
-    items: s.array(
-      s.object({
-        icon: s.string(),
-        name: s.string(),
-        tagline: s.string(),
-      }),
-    ),
   }),
 });
 
@@ -130,6 +115,6 @@ const notes = defineCollection({
 
 export default defineConfig({
   root: "content",
-  collections: { site, home, trust, projects, notes },
+  collections: { site, home, projects, notes },
   markdown: { remarkPlugins: [remarkBreaks] },
 });

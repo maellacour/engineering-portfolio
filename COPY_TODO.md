@@ -1,62 +1,26 @@
-# COPY_TODO — brand copy to write
+# Copy status — engineering-portfolio
 
-Every editable brand-copy slot is a literal `TODO_COPY` in the content files
-below. Fill them in and the site updates with **no code changes**. Legacy text
-is shown only as *reference* — some is reusable, some is **retired** (see the
-banned list at the bottom) and must be rewritten, not pasted.
+All `TODO_COPY` placeholders have been filled from the final copy pack
+(hero, "What I build", about, contact, SEO meta, notes intro). Nothing left to
+fill for launch copy.
 
-Guidance (from CLAUDE.md): plain verbs, sentence case, active voice, no filler.
-Specific beats clever.
+## Deliberately deferred (do not ship yet)
 
----
+- **Services line** — the contact-section variant that offers AI-integration
+  engagements (Scenario A, own name) or FCBG-carried services (Scenario B).
+  Both need clearing with FCBG first, so neither is in the site. When decided,
+  the contact copy swaps and — for Scenario A — a `/services` page is added.
 
-## `content/home.yml`
+## Still your words to write (content, not code)
 
-| Field | What it is | Legacy reference |
-|-------|-----------|------------------|
-| `title` | Browser tab / meta title | "Hey, I'm Mael Lacour" (reusable) |
-| `description` | Meta description (SEO + OG) | ⚠️ legacy used the retired "ambitious founders" line — rewrite |
-| `hero.title` | Big hero headline | "Hey, I'm Mael Lacour" (reusable) |
-| `hero.description` | Hero subtitle under the name | ⚠️ same retired line — rewrite |
-| `hero.cta.label` | Primary hero button label | "Download CV" (reusable). `href` already points to the résumé PDF |
-| `projects.title` | Projects section heading | "Featured Projects" (reusable) |
-| `projects.description` | Projects section intro | "A selection of projects spanning XR research tools, SaaS platforms, mobile apps, and multiplayer games…" (reusable, trim as you like) |
-| `about.title` | About section heading | "About Me" (reusable) |
-| `about.body` | About prose (markdown; paragraphs allowed) | ⚠️ legacy ended with "available for consulting" — rewrite that part |
-| `contact.title` | Contact section heading | "Let's Connect" (reusable) |
-| `contact.body` | Contact prose (markdown) | ⚠️ legacy closed with "Let's build something that matters" — rewrite |
+- **Notes** — two first pieces, both drafts due before 24 Sept:
+  1. _Code agents on a Unity codebase: what actually works_
+  2. _From meeting audio to team notes: a Whisper + Claude pipeline_
+  Add them as `content/notes/*.mdx`; the route and index are ready.
 
-`about.body` and `contact.body` accept markdown (bold, links, multiple
-paragraphs). Everything else is plain text.
+## Open structural item — Selected work
 
-## `content/site.yml`
-
-| Field | What it is | Note |
-|-------|-----------|------|
-| `email` | Public contact address | Currently `contact.dev@maellacour.com`, de-obfuscated from the legacy "contact.dev at maellacour.com" — **confirm this is correct** |
-| `availability.availableLabel` | Text on the hero status pill when `available: true` | ⚠️ "Available for consulting" is retired. Write something that fits a non-sales site, **or** set `availability.available: false` to hide the pill entirely |
-| `availability.unavailableLabel` | Pill text when `available: false` | Legacy: "Not available at the moment" |
-
-## `content/trust.yml`
-
-| Field | What it is | Legacy reference |
-|-------|-----------|------------------|
-| `title` | Section heading | "Institutions & Recognition" (reusable) |
-| `description` | Section intro | "Seven years of research collaborations, certified expertise, and engineering excellence." (reusable) |
-
-The institution list (`items`) is carried over verbatim — no action needed.
-
----
-
-## Retired formulations — do not reuse
-
-- "ambitious founders"
-- "let's build something that matters"
-- "available for consulting"
-
-## Not copy (leave as-is)
-
-Project titles, descriptions and body prose are ported **verbatim** from the
-legacy site and are intentionally untouched. Image references are Cloudinary
-public IDs. The `/notes` section has no copy yet — write notes as MDX files in
-`content/notes/`.
+The copy pack's featured set is **Anatomy.VR, RobbinGoblins, HarMoNie,
+EcoRescue** (3–4 cards). Only HarMoNie and EcoRescue exist in the content today;
+the home still shows the seven legacy projects. Reconciling this needs content +
+a decision — see the note in chat.

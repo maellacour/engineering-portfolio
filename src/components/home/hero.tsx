@@ -2,7 +2,7 @@
 
 import { CldImage } from "@/components/cld";
 import { motion, useReducedMotion } from "motion/react";
-import { Download, ArrowDown } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import { home, site } from "@velite";
 import { buttonVariants } from "@/components/ui/button";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
@@ -12,7 +12,7 @@ const socialIcons = { linkedin: LinkedinIcon, github: GithubIcon } as const;
 export function Hero() {
   const reduce = useReducedMotion();
   const { hero } = home;
-  const { availability, socials } = site;
+  const { socials } = site;
 
   const rise = (delay: number) =>
     reduce
@@ -63,21 +63,6 @@ export function Hero() {
 
       {/* Text */}
       <div className="order-2 flex flex-col items-start lg:order-1">
-        {availability.available && (
-          <motion.span
-            {...rise(0)}
-            className="border-border/60 mb-6 inline-flex items-center gap-2 rounded-full border bg-white/[0.03] px-3 py-1.5 backdrop-blur"
-          >
-            <span className="relative flex size-2">
-              <span className="bg-primary absolute inline-flex size-full animate-ping rounded-full opacity-75 motion-reduce:animate-none" />
-              <span className="bg-primary relative inline-flex size-2 rounded-full" />
-            </span>
-            <span className="text-muted-foreground font-mono text-xs tracking-wide uppercase">
-              {availability.availableLabel}
-            </span>
-          </motion.span>
-        )}
-
         <motion.h1
           {...rise(0.1)}
           className="font-display from-foreground to-primary bg-gradient-to-br bg-clip-text text-4xl leading-[1.02] font-bold tracking-tight text-balance text-transparent sm:text-5xl lg:text-6xl"
@@ -87,7 +72,7 @@ export function Hero() {
 
         <motion.p
           {...rise(0.25)}
-          className="text-muted-foreground mt-5 max-w-md text-lg text-pretty"
+          className="text-muted-foreground mt-5 max-w-lg text-lg text-pretty"
         >
           {hero.description}
         </motion.p>
@@ -96,15 +81,18 @@ export function Hero() {
           {...rise(0.4)}
           className="mt-8 flex flex-wrap items-center gap-3"
         >
-          <a
-            href={hero.cta.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={buttonVariants({ size: "lg" })}
-          >
-            <Download className="size-4" />
-            {hero.cta.label}
-          </a>
+          {hero.links.map((link, i) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className={buttonVariants({
+                variant: i === 0 ? "default" : "outline",
+                size: "lg",
+              })}
+            >
+              {link.label}
+            </a>
+          ))}
           <div className="ml-1 flex items-center gap-1">
             {socials.map((social) => {
               const Icon = socialIcons[social.icon];

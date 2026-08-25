@@ -24,9 +24,11 @@ export function Projects() {
         >
           {home.projects.title}
         </h2>
-        <p className="text-muted-foreground mt-3 text-pretty">
-          {home.projects.description}
-        </p>
+        {home.projects.description && (
+          <p className="text-muted-foreground mt-3 text-pretty">
+            {home.projects.description}
+          </p>
+        )}
       </div>
 
       {/* Featured — image-forward cards */}

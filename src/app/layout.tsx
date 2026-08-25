@@ -26,8 +26,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   ),
-  title: { default: "Mael Lacour", template: "%s · Mael Lacour" },
-  openGraph: { type: "website", siteName: "Mael Lacour", locale: "en" },
+  title: { default: "Maël Lacour", template: "%s · Maël Lacour" },
+  openGraph: { type: "website", siteName: "Maël Lacour", locale: "en" },
   twitter: { card: "summary_large_image" },
 };
 

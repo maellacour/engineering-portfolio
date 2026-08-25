@@ -1,34 +1,66 @@
-# Home page content. All brand copy is TODO_COPY — written by Maël.
-# Image values are Cloudinary public IDs carried over from the legacy site.
+# Home page content. Image values are Cloudinary public IDs.
 
-title: TODO_COPY # <title> / meta title
-description: TODO_COPY # meta description
+title: "Maël Lacour — Software for brain research | XR, AI & full stack, Geneva"
+description: >-
+  Geneva-based lead engineer building XR games, VR tools and data pipelines for
+  cognitive-science research — with AI woven into the practice.
 ogImage: profil-with-headset_kltqvr.jpg
 
 hero:
-  title: TODO_COPY
-  description: TODO_COPY
+  title: I build the software behind brain research.
+  description: >-
+    XR games, VR tools and data pipelines for cognitive-science studies in
+    Geneva — engineered with AI in the loop, from code agents to transcription
+    pipelines.
   image:
     src: profil-with-headset_kltqvr.jpg
-    alt: Mael Lacour
-  cta:
-    label: TODO_COPY
-    href: /LACOUR.Mael.Resume.No-Tel.pdf
+    alt: Maël Lacour
+  links:
+    - label: See the work
+      href: /#projects
+    - label: Get in touch
+      href: /#contact
+
+build:
+  title: What I build
+  items:
+    - title: Research games & XR
+      body: >-
+        Cognitive-training games and VR tools used in studies across Geneva,
+        Haifa and Miami — engaging enough that participants come back, reliable
+        enough for clinical settings. Unity Certified Expert.
+    - title: AI-augmented engineering
+      body: >-
+        I put AI to work on real codebases and real workflows: code agents on
+        Unity and Flutter projects, a transcription-to-notes pipeline my whole
+        team uses, shared conventions for building research software with AI.
+        Currently going deeper: fine-tuning speech models for scientific
+        vocabulary.
+    - title: Full stack & infrastructure
+      body: >-
+        The unglamorous layer that keeps studies running: backends, data
+        pipelines, CI/CD, cloud. If participants can log in on day one of a
+        study, this is why.
 
 projects:
-  title: TODO_COPY
-  description: TODO_COPY
+  title: Selected work
 
 about:
-  title: TODO_COPY
-  body: TODO_COPY
+  title: About
+  body: >-
+    Grande École engineer (Arts et Métiers), started in aerospace, found my
+    place where software meets science. Six years building research tools in
+    Geneva with UNIGE, HUG and university labs across Europe. When I'm not
+    building, I'm probably paragliding above it.
   image:
     src: mael.office.square.grayscale_enkzmk.jpg
-    alt: Mael Lacour in his office
+    alt: Maël Lacour in his office
 
 contact:
-  title: TODO_COPY
-  body: TODO_COPY
+  title: Get in touch
+  body: >-
+    Open to speaking and collaborations — especially if you're figuring out how
+    AI fits into your engineering practice.
   image:
     src: parapente2_zeuwf9
     alt: Paragliding over Geneva Lake

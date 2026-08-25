@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { home } from "@velite";
 
-export const alt = "Mael Lacour";
+export const alt = "Maël Lacour";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -21,7 +21,7 @@ export default function Image() {
       }}
     >
       <div style={{ display: "flex", fontSize: 34, opacity: 0.8 }}>
-        Mael Lacour
+        Maël Lacour
       </div>
       <div
         style={{
