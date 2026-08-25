@@ -57,7 +57,7 @@
   --popover-foreground: oklch(0.145 0 0);
   /* Accent — tweak --accent-h (hue) to reshuffle the whole palette; --primary,
      --ring and the background mesh all derive from it. */
-  --accent-h: 292;
+  --accent-h: 316;
   --accent-c: 0.26;
   --accent-l: 0.55;
   --primary: oklch(var(--accent-l) var(--accent-c) var(--accent-h));
