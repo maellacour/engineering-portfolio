@@ -29,6 +29,7 @@ site remains in production until the cutover (1.0.0).
 - SEO via the Next Metadata API, dynamic Open Graph images (`next/og`),
   `sitemap.xml`, `robots.txt`, and a custom 404 page.
 - Cloudinary image and video delivery via `next-cloudinary`.
+- Brand favicon, logo, and résumé PDF carried over from the legacy site.
 - Respects `prefers-reduced-motion` throughout; visible keyboard focus.
 
 [Unreleased]: https://github.com/maellacour/engineering-portfolio/compare/v0.1.0...HEAD
