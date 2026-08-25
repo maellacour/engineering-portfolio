@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-// The signature element: an indigo mesh glow that tracks the cursor on desktop.
+// The signature element: an accent-hued mesh glow that tracks the cursor on desktop.
 // On touch devices and under prefers-reduced-motion it stays in its resting
 // position (a soft glow behind the hero), so it never depends on a pointer.
 export function BackgroundMesh() {

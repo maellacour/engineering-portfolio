@@ -24,7 +24,7 @@ export function Hero() {
         };
 
   return (
-    <section className="relative grid items-center gap-10 py-8 sm:py-14 lg:grid-cols-[1.05fr_0.85fr] lg:gap-14">
+    <section className="relative grid items-center gap-10 py-8 sm:py-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-12">
       {/* Portrait — first on mobile, right on desktop */}
       <motion.div
         {...(reduce
@@ -34,7 +34,7 @@ export function Hero() {
               animate: { opacity: 1, scale: 1, filter: "blur(0px)" },
               transition: { duration: 0.8, delay: 0.1 },
             })}
-        className="relative order-1 mx-auto w-60 sm:w-72 lg:order-2 lg:mx-0 lg:w-full lg:max-w-sm"
+        className="relative order-1 mx-auto w-64 sm:w-80 lg:order-2 lg:mx-0 lg:w-full lg:max-w-none"
       >
         <div
           aria-hidden

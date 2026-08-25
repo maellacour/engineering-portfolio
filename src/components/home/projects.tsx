@@ -50,7 +50,7 @@ export function Projects() {
               className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"
             />
             <div className="relative p-5 text-white">
-              <span className="font-mono text-[0.66rem] tracking-wider text-indigo-300 uppercase">
+              <span className="text-primary font-mono text-[0.66rem] tracking-wider uppercase">
                 {project.tag}
               </span>
               <h3 className="font-display mt-1 text-xl font-semibold">

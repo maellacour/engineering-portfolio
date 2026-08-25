@@ -20,7 +20,7 @@ export function Contact() {
           width={1000}
           height={750}
           sizes="(max-width: 1024px) 100vw, 50vw"
-          className="ring-border/60 aspect-[4/3] w-full rounded-2xl object-cover shadow-lg ring-1 lg:order-last"
+          className="ring-border/60 aspect-[4/3] w-full rounded-2xl object-cover shadow-lg ring-1"
         />
         <div>
           <h2
