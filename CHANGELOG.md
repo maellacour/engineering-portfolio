@@ -6,6 +6,8 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.2.0] — 2026-08-25
+
 ### Added
 
 - Scroll-reveal animations across the home sections — a subtle rise + fade +
@@ -41,5 +43,6 @@ site remains in production until the cutover (1.0.0).
 - Cloudinary image and video delivery via `next-cloudinary`.
 - Respects `prefers-reduced-motion` throughout; visible keyboard focus.
 
-[Unreleased]: https://github.com/maellacour/engineering-portfolio/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/maellacour/engineering-portfolio/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/maellacour/engineering-portfolio/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/maellacour/engineering-portfolio/releases/tag/v0.1.0
