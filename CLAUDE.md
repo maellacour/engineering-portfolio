@@ -19,6 +19,8 @@ modify it.** Read from it freely.
 A separate real-estate site may live alongside this one later. Keep this
 repository scoped to the engineering identity only.
 
+See CONTEXT.md for background on who this site represents and where it's heading
+
 ---
 
 ## Behavioral Guidelines
