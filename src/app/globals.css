@@ -57,11 +57,11 @@
   --popover-foreground: oklch(0.145 0 0);
   /* Accent — tweak --accent-h (hue) to reshuffle the whole palette; --primary,
      --ring and the background mesh all derive from it. */
-  --accent-h: 195;
-  --accent-c: 0.14;
-  --accent-l: 0.7;
+  --accent-h: 292;
+  --accent-c: 0.26;
+  --accent-l: 0.55;
   --primary: oklch(var(--accent-l) var(--accent-c) var(--accent-h));
-  --primary-foreground: oklch(0.18 0.03 240);
+  --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
@@ -96,7 +96,7 @@
   --popover: oklch(0.145 0.018 280);
   --popover-foreground: oklch(0.985 0 0);
   --primary: oklch(var(--accent-l) var(--accent-c) var(--accent-h));
-  --primary-foreground: oklch(0.18 0.03 240);
+  --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
@@ -141,8 +141,8 @@
   --mesh-2: transparent;
 }
 .dark {
-  --mesh-1: oklch(0.7 0.16 var(--accent-h) / 0.22);
-  --mesh-2: oklch(0.62 0.16 calc(var(--accent-h) + 50) / 0.12);
+  --mesh-1: oklch(0.68 0.21 var(--accent-h) / 0.22);
+  --mesh-2: oklch(0.6 0.21 calc(var(--accent-h) + 50) / 0.13);
 }
 .bg-mesh {
   position: fixed;
