@@ -63,16 +63,23 @@ export function Hero() {
 
       {/* Text */}
       <div className="order-2 flex flex-col items-start lg:order-1">
+        <motion.p
+          {...rise(0)}
+          className="font-display mb-4 text-lg font-semibold tracking-tight sm:text-xl"
+        >
+          Maël Lacour
+        </motion.p>
+
         <motion.h1
           {...rise(0.1)}
-          className="font-display from-foreground to-primary bg-gradient-to-br bg-clip-text text-4xl leading-[1.02] font-bold tracking-tight text-balance text-transparent sm:text-5xl lg:text-6xl"
+          className="font-display text-foreground text-[2.5rem] leading-[1.05] font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl"
         >
           {hero.title}
         </motion.h1>
 
         <motion.p
           {...rise(0.25)}
-          className="text-muted-foreground mt-5 max-w-lg text-lg text-pretty"
+          className="text-muted-foreground mt-6 max-w-lg text-xl leading-relaxed text-pretty"
         >
           {hero.description}
         </motion.p>

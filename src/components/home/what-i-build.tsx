@@ -24,10 +24,10 @@ export function WhatIBuild() {
             <span className="text-primary font-mono text-xs tracking-wider">
               {String(i + 1).padStart(2, "0")}
             </span>
-            <h3 className="font-display mt-3 text-lg font-semibold">
+            <h3 className="font-display mt-3 text-xl font-semibold">
               {item.title}
             </h3>
-            <p className="text-muted-foreground mt-2 text-sm leading-relaxed">
+            <p className="text-muted-foreground mt-2 leading-relaxed">
               {item.body}
             </p>
           </div>
