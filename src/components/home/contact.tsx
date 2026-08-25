@@ -2,6 +2,7 @@ import { CldImage } from "@/components/cld";
 import { Mail } from "lucide-react";
 import { home, site } from "@velite";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
+import { Reveal } from "@/components/reveal";
 
 const socialIcons = { linkedin: LinkedinIcon, github: GithubIcon } as const;
 
@@ -14,15 +15,17 @@ export function Contact() {
       aria-labelledby="contact-heading"
     >
       <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-        <CldImage
-          src={contact.image.src}
-          alt={contact.image.alt}
-          width={1000}
-          height={750}
-          sizes="(max-width: 1024px) 100vw, 50vw"
-          className="ring-border/60 aspect-[4/3] w-full rounded-2xl object-cover shadow-lg ring-1"
-        />
-        <div>
+        <Reveal>
+          <CldImage
+            src={contact.image.src}
+            alt={contact.image.alt}
+            width={1000}
+            height={750}
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="ring-border/60 aspect-[4/3] w-full rounded-2xl object-cover shadow-lg ring-1"
+          />
+        </Reveal>
+        <Reveal delay={0.1}>
           <h2
             id="contact-heading"
             className="font-display text-3xl font-bold tracking-tight sm:text-4xl"
@@ -60,7 +63,7 @@ export function Contact() {
               })}
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
