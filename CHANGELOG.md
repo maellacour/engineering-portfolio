@@ -6,28 +6,30 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.1.0] — 2026-08-25
+
+Initial preview release — the Next.js rewrite of the portfolio. The legacy Nuxt
+site remains in production until the cutover (1.0.0).
+
 ### Added
 
-- Next.js 15.5 (App Router) + TypeScript rewrite of the legacy Nuxt 3 site.
-- Velite content layer with typed schemas for site, home, trust, projects and
-  notes.
-- All 7 projects ported verbatim to a structured project schema with an MDX
-  escape hatch for the body narrative.
-- Home page: portrait-led hero, project grid (featured + more), trust, about
-  and contact sections — content-driven, mobile-first, dark mode by default.
-- Project detail pages at `/projects/[slug]`, preserving legacy URLs 1:1.
-- `/notes` section scaffold (index + MDX detail route); no content yet.
-- SEO via the Next Metadata API and dynamic Open Graph images (`next/og`).
-- `sitemap.xml`, `robots.txt`, and a custom 404 page.
-- Cloudinary image/video delivery via `next-cloudinary`.
-- `COPY_TODO.md` checklist for brand copy left as `TODO_COPY`.
+- Next.js 15.5 (App Router) + TypeScript (strict) + Tailwind CSS v4.
+- Velite content layer with typed schemas (site, home, projects, notes) — all
+  content editable under `content/` without touching application code.
+- "Immersive" design direction: near-black canvas with an Ultraviolet accent
+  driven by a single hue token, a cursor-reactive background mesh, and a
+  View-Transitions circular reveal on the dark/light toggle. Space Grotesk
+  display, DM Sans body, JetBrains Mono labels. Hand-written components (no
+  shadcn/Base UI).
+- Home page: name-first hero, "What I build" (three capability axes), selected
+  work (image-forward featured cards plus a thumbnailed index of the rest),
+  about, and contact — content-driven, mobile-first, dark by default.
+- Project detail pages at `/projects/[slug]`, preserving the legacy URLs 1:1.
+- `/notes` section scaffold (index + MDX detail route); no pieces written yet.
+- SEO via the Next Metadata API, dynamic Open Graph images (`next/og`),
+  `sitemap.xml`, `robots.txt`, and a custom 404 page.
+- Cloudinary image and video delivery via `next-cloudinary`.
+- Respects `prefers-reduced-motion` throughout; visible keyboard focus.
 
-### Changed
-
-- Adopted the "Immersive" design direction: near-black indigo canvas, a
-  cursor-reactive mesh glow, Space Grotesk display type, duotone hero portrait,
-  and image-forward project cards.
-- Dropped shadcn/ui and Base UI in favour of hand-written components; kept a
-  hand-written `Button`. Headless primitives remain available à la carte.
-
-[Unreleased]: https://github.com/maellacour/engineering-portfolio
+[Unreleased]: https://github.com/maellacour/engineering-portfolio/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/maellacour/engineering-portfolio/releases/tag/v0.1.0
