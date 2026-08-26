@@ -4,6 +4,7 @@ import "./globals.css";
 import { defaultLocale } from "@/lib/i18n";
 import { ThemeProvider } from "@/components/theme-provider";
 import { BackgroundMesh } from "@/components/background-mesh";
+import { ConsoleEgg } from "@/components/console-egg";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 
@@ -46,6 +47,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <BackgroundMesh />
+          <ConsoleEgg />
           <div className="relative z-10 mx-auto flex min-h-dvh max-w-6xl flex-col px-5 sm:px-8">
             <SiteHeader />
             <main className="flex-1 pt-24">{children}</main>
