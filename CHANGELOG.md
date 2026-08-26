@@ -15,6 +15,8 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Contact form (name / email / message) posting to an `/api/contact` route that
   emails via Resend. Bot protection: honeypot, length caps, a link-spam
   heuristic, and optional Cloudflare Turnstile (server-verified).
+- A multiple-object-tracking mini-game in the About section (a nod to the
+  cognitive-science work), with a reduced-motion fallback.
 
 ### Changed
 
