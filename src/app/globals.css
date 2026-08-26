@@ -204,3 +204,16 @@
     transform: scale(0.99) rotate(0.5deg);
   }
 }
+
+/* Stroop-test unlock: a little confetti burst from the card centre. */
+@keyframes stroop-pop {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy)))
+      scale(0.3);
+  }
+}
