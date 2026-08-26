@@ -45,6 +45,7 @@ const home = defineCollection({
     }),
     build: s.object({
       title: s.string(),
+      intro: s.string().optional(),
       items: s.array(s.object({ title: s.string(), body: s.string() })),
     }),
     projects: s.object({

@@ -16,6 +16,11 @@ export function WhatIBuild() {
         >
           {build.title}
         </h2>
+        {build.intro && (
+          <p className="text-muted-foreground mt-3 max-w-2xl text-pretty">
+            {build.intro}
+          </p>
+        )}
       </Reveal>
 
       <RevealStagger className="mt-10 grid gap-4 md:grid-cols-3">
