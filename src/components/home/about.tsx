@@ -1,6 +1,7 @@
 import { CldImage } from "@/components/cld";
 import { home } from "@velite";
 import { Reveal } from "@/components/reveal";
+import { AttentionGame } from "./attention-game";
 
 export function About() {
   const { about } = home;
@@ -46,6 +47,10 @@ export function About() {
           </div>
         </Reveal>
       </div>
+
+      <Reveal className="mt-14">
+        <AttentionGame />
+      </Reveal>
     </section>
   );
 }
