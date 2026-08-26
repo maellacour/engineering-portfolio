@@ -13,7 +13,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - A `/work` archive page listing every project; the home now features a curated
   set and links out to the archive.
 - Contact form (name / email / message, with a honeypot and validation) posting
-  to an `/api/contact` route.
+  to an `/api/contact` route that emails via Resend.
 
 ### Changed
 
