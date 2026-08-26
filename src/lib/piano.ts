@@ -96,7 +96,8 @@ function midiOf(letter: string, accidental: string, octave: number): number {
   return (octave + 1) * 12 + base + shift;
 }
 
-const freqOfMidi = (midi: number): number => 440 * Math.pow(2, (midi - 69) / 12);
+const freqOfMidi = (midi: number): number =>
+  440 * Math.pow(2, (midi - 69) / 12);
 
 type Step = { freqs: number[]; beats: number };
 
@@ -230,7 +231,10 @@ const rawScore: Voice[] = [
 // A negative start beat would schedule before t=0, which Web Audio clamps
 // (and would bunch those notes together). Shift everything instead.
 const earliest = rawScore.reduce((min, v) => Math.min(min, v.start), 0);
-const SCORE: Voice[] = rawScore.map((v) => ({ ...v, start: v.start - earliest }));
+const SCORE: Voice[] = rawScore.map((v) => ({
+  ...v,
+  start: v.start - earliest,
+}));
 
 /** Beats per timeline, exported so a test can assert the bars line up. */
 export const BEAT_TOTALS = {
