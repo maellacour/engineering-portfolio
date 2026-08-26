@@ -54,10 +54,6 @@ export function Hero() {
             className="h-full w-full object-cover"
             priority
           />
-          <div
-            aria-hidden
-            className="bg-primary absolute inset-0 opacity-20 mix-blend-color"
-          />
         </div>
       </motion.div>
 
