@@ -6,20 +6,31 @@ import { useReducedMotion } from "motion/react";
 import { cn } from "@/lib/utils";
 
 const DOT_COUNT = 7;
-const MARGIN = 9; // keep dots off the edges (percent)
-const SHOW_MS = 1300;
+const TARGET_COUNT = 2;
+const MARGIN = 9; // keep dots inside the circle (percent)
+const R = 50 - MARGIN; // arena radius in percent
+const SHOW_MS = 1600;
 const MOVE_MS = 4200;
+const SHOW_SPEED = 0.4; // slower drift while the targets are revealed
+const BASE_SPEED = 0.6;
 
 type Phase = "idle" | "show" | "move" | "answer" | "result";
 type Dot = { x: number; y: number; vx: number; vy: number };
 
-const rand = (min: number, max: number) => min + Math.random() * (max - min);
+function pickTargets() {
+  const idx = [...Array(DOT_COUNT).keys()];
+  for (let i = idx.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [idx[i], idx[j]] = [idx[j], idx[i]];
+  }
+  return idx.slice(0, TARGET_COUNT);
+}
 
 export function AttentionGame() {
   const reduce = useReducedMotion();
   const [phase, setPhase] = useState<Phase>("idle");
-  const [target, setTarget] = useState(0);
-  const [picked, setPicked] = useState<number | null>(null);
+  const [targets, setTargets] = useState<number[]>([]);
+  const [picked, setPicked] = useState<number[]>([]);
 
   const dots = useRef<Dot[]>([]);
   const els = useRef<(HTMLButtonElement | null)[]>([]);
@@ -37,16 +48,20 @@ export function AttentionGame() {
   }, []);
 
   const seed = useCallback(() => {
-    dots.current = Array.from({ length: DOT_COUNT }, () => ({
-      x: rand(MARGIN, 100 - MARGIN),
-      y: rand(MARGIN, 100 - MARGIN),
-      vx: rand(-0.6, 0.6) || 0.4,
-      vy: rand(-0.6, 0.6) || 0.4,
-    }));
+    dots.current = Array.from({ length: DOT_COUNT }, () => {
+      const a = Math.random() * Math.PI * 2;
+      const r = R * Math.sqrt(Math.random());
+      const dir = Math.random() * Math.PI * 2;
+      return {
+        x: 50 + r * Math.cos(a),
+        y: 50 + r * Math.sin(a),
+        vx: Math.cos(dir) * BASE_SPEED,
+        vy: Math.sin(dir) * BASE_SPEED,
+      };
+    });
     paint();
   }, [paint]);
 
-  // Spread the dots out on mount so the idle state looks intentional.
   useEffect(() => {
     seed();
     return () => {
@@ -56,42 +71,46 @@ export function AttentionGame() {
   }, [seed]);
 
   const start = () => {
-    setPicked(null);
+    setPicked([]);
     seed();
-    setTarget(Math.floor(Math.random() * DOT_COUNT));
+    setTargets(pickTargets());
     setPhase("show");
     timer.current = setTimeout(() => setPhase("move"), SHOW_MS);
   };
 
-  // Drive the tracking motion.
+  // Drive the drift during both the reveal (slow) and the tracking (full speed).
   useEffect(() => {
-    if (phase !== "move") return;
+    if (phase !== "show" && phase !== "move") return;
+    const factor = phase === "show" ? SHOW_SPEED : 1;
     let running = true;
     const loop = () => {
       if (!running) return;
       for (const d of dots.current) {
-        d.x += d.vx;
-        d.y += d.vy;
-        if (d.x <= MARGIN) {
-          d.x = MARGIN;
-          d.vx = Math.abs(d.vx);
-        } else if (d.x >= 100 - MARGIN) {
-          d.x = 100 - MARGIN;
-          d.vx = -Math.abs(d.vx);
-        }
-        if (d.y <= MARGIN) {
-          d.y = MARGIN;
-          d.vy = Math.abs(d.vy);
-        } else if (d.y >= 100 - MARGIN) {
-          d.y = 100 - MARGIN;
-          d.vy = -Math.abs(d.vy);
+        d.x += d.vx * factor;
+        d.y += d.vy * factor;
+        const dx = d.x - 50;
+        const dy = d.y - 50;
+        const dist = Math.hypot(dx, dy) || 1;
+        if (dist > R) {
+          const nx = dx / dist;
+          const ny = dy / dist;
+          const vdotn = d.vx * nx + d.vy * ny;
+          if (vdotn > 0) {
+            d.vx -= 2 * vdotn * nx;
+            d.vy -= 2 * vdotn * ny;
+          }
+          d.x = 50 + nx * R;
+          d.y = 50 + ny * R;
         }
       }
       paint();
       raf.current = requestAnimationFrame(loop);
     };
     raf.current = requestAnimationFrame(loop);
-    const stop = setTimeout(() => setPhase("answer"), MOVE_MS);
+    const stop =
+      phase === "move"
+        ? setTimeout(() => setPhase("answer"), MOVE_MS)
+        : undefined;
     return () => {
       running = false;
       cancelAnimationFrame(raf.current);
@@ -100,15 +119,18 @@ export function AttentionGame() {
   }, [phase, paint]);
 
   const pick = (i: number) => {
-    if (phase !== "answer") return;
-    setPicked(i);
-    setPhase("result");
+    if (phase !== "answer" || picked.includes(i)) return;
+    const next = [...picked, i];
+    setPicked(next);
+    if (next.length === TARGET_COUNT) setPhase("result");
   };
 
-  const won = phase === "result" && picked === target;
-  const revealTarget = phase === "show" || phase === "result";
+  const revealTargets = phase === "show" || phase === "result";
+  const won =
+    phase === "result" &&
+    picked.length === TARGET_COUNT &&
+    picked.every((p) => targets.includes(p));
 
-  // Reduced-motion: no tracking task, just the idea + a way to reach the work.
   if (reduce) {
     return (
       <div className="border-border/60 rounded-2xl border bg-white/[0.02] p-6 backdrop-blur">
@@ -129,13 +151,13 @@ export function AttentionGame() {
 
   const prompt =
     phase === "idle"
-      ? "Keep your eye on the highlighted dot."
+      ? "Keep your eye on the two highlighted dots."
       : phase === "show"
-        ? "Memorise it…"
+        ? "Memorise them…"
         : phase === "move"
-          ? "Track it…"
+          ? "Track them…"
           : phase === "answer"
-            ? "Which one was it?"
+            ? `Which two? (${picked.length}/2)`
             : won
               ? "Nailed it."
               : "Not quite — harder than it looks.";
@@ -151,32 +173,37 @@ export function AttentionGame() {
         </p>
       </div>
 
-      <div className="border-border/60 bg-background/40 relative mt-4 h-60 overflow-hidden rounded-xl border sm:h-72">
-        {Array.from({ length: DOT_COUNT }).map((_, i) => (
-          <button
-            key={i}
-            ref={(el) => {
-              els.current[i] = el;
-            }}
-            type="button"
-            disabled={phase !== "answer"}
-            onClick={() => pick(i)}
-            aria-label={`Dot ${i + 1}`}
-            className={cn(
-              "focus-visible:ring-primary absolute size-5 -translate-x-1/2 -translate-y-1/2 rounded-full transition-[background-color,box-shadow] duration-300 focus-visible:ring-2 focus-visible:outline-none",
-              phase === "answer" &&
-                "hover:ring-primary/60 cursor-pointer hover:ring-2",
-              revealTarget && i === target
-                ? "bg-primary ring-primary/30 ring-4"
-                : "bg-foreground/70",
-              phase === "result" &&
-                picked === i &&
-                i !== target &&
-                "bg-destructive",
-            )}
-            style={{ left: "50%", top: "50%" }}
-          />
-        ))}
+      <div className="border-border/60 bg-background/40 relative mx-auto mt-4 aspect-square w-full max-w-sm overflow-hidden rounded-full border">
+        {Array.from({ length: DOT_COUNT }).map((_, i) => {
+          const isRevealed = revealTargets && targets.includes(i);
+          const isSelected = picked.includes(i);
+          return (
+            <button
+              key={i}
+              ref={(el) => {
+                els.current[i] = el;
+              }}
+              type="button"
+              disabled={phase !== "answer"}
+              onClick={() => pick(i)}
+              aria-label={`Dot ${i + 1}`}
+              className={cn(
+                "focus-visible:ring-primary absolute size-5 -translate-x-1/2 -translate-y-1/2 rounded-full transition-[background-color,box-shadow] duration-300 focus-visible:ring-2 focus-visible:outline-none",
+                phase === "answer" &&
+                  "hover:ring-primary/60 cursor-pointer hover:ring-2",
+                isRevealed
+                  ? "bg-primary ring-primary/30 ring-4"
+                  : "bg-foreground/70",
+                phase === "answer" && isSelected && "ring-primary ring-2",
+                phase === "result" &&
+                  isSelected &&
+                  !targets.includes(i) &&
+                  "bg-destructive",
+              )}
+              style={{ left: "50%", top: "50%" }}
+            />
+          );
+        })}
 
         {phase === "idle" && (
           <div className="absolute inset-0 flex items-center justify-center bg-black/30">
@@ -185,7 +212,7 @@ export function AttentionGame() {
               onClick={start}
               className="bg-primary text-primary-foreground rounded-full px-5 py-2.5 text-sm font-semibold transition-transform hover:-translate-y-0.5"
             >
-              Track the dot
+              Track the dots
             </button>
           </div>
         )}
