@@ -41,7 +41,7 @@ stops:
     blurb: >-
       The layer that keeps studies running — backends, data pipelines, cloud,
       and CI/CD.
-    tags: [Cloud, PostgreSQL, Azure, CI/CD, Docker]
+    tags: [API, PostgreSQL, Azure, CI/CD, Docker]
 
   - label: AI
     icon: sparkles

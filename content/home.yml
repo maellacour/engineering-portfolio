@@ -24,20 +24,18 @@ hero:
 build:
   title: What I build
   intro: >-
-    Three threads run through the work: research tools that had to actually work,
-    AI in how I build, and the infrastructure underneath. The AI one is where I'm
-    headed.
+    Everything here serves the same goal : To provide research software people actually use.
   items:
     - title: Research games & XR
       body: >-
         Cognitive-training games and VR tools used in studies across Geneva,
         Haifa and Miami — engaging enough that participants come back, reliable
-        enough for clinical settings. Unity Certified Expert.
+        enough for clinical settings.
     - title: AI-augmented engineering
       body: >-
         I put AI to work on real codebases and real workflows: code agents on
         Unity and Flutter projects, a transcription-to-notes pipeline my whole
-        team uses, shared conventions for building research software with AI.
+        team uses, shared conventions for AI-assisted development.
         Currently going deeper: fine-tuning speech models for scientific
         vocabulary.
     - title: Full stack & infrastructure
@@ -53,7 +51,7 @@ about:
   title: About
   body: >-
     I didn't set out to build software for neuroscience. I trained as a Grande
-    École engineer at Arts et Métiers and started in aerospace — my student work
+    École engineer at Arts et Métiers and started in aerospace — my work
     there even won an Airbus award. But the projects that pulled me in were
     always the ones where code met science.
 

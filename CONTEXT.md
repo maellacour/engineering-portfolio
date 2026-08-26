@@ -11,7 +11,7 @@ boundaries below still apply.
 ## Who I am
 
 Maël Lacour, engineer, based in Geneva. Grande École engineer from Arts et
-Métiers ParisTech. I started in aerospace (Airbus-awarded student work), then
+Métiers ParisTech. I started in aerospace (Airbus-awarded work), then
 found the place where I do my best work: the intersection of software
 engineering and science.
 
