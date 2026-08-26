@@ -10,79 +10,31 @@ import {
   Award,
   ArrowRight,
 } from "lucide-react";
+import { journey } from "@velite";
 import { UnityIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
 
-// Draft content (from CONTEXT) — a "what I learned & picked up" thread meant to
-// complement the prose About, not repeat it. Labels describe the skill, not the
-// institution (that lives in the blurb). Editable later.
-type Stop = {
-  label: string;
-  icon: React.ComponentType<{ className?: string }>;
-  blurb: string;
-  tags: string[];
-  milestone?: string;
-  links?: { label: string; href: string }[];
+const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+  ruler: Ruler,
+  cog: Cog,
+  brain: Brain,
+  unity: UnityIcon,
+  server: Server,
+  sparkles: Sparkles,
 };
 
-const STOPS: Stop[] = [
-  {
-    label: "Math & geometry",
-    icon: Ruler,
-    blurb:
-      "Two years of classe préparatoire (PT) — physics and technology, and a lot of math and geometry. The groundwork everything else sits on.",
-    tags: ["Mathematics", "Geometry", "Physics"],
-  },
-  {
-    label: "Engineering",
-    icon: Cog,
-    blurb:
-      "Grande École engineering at Arts et Métiers (ENSAM) — learning to build with rigor. My student work on a 3D platform for Airbus won an Award for Excellence.",
-    tags: ["Engineering", "3D", "Aerospace"],
-  },
-  {
-    label: "Cognitive science",
-    icon: Brain,
-    blurb:
-      "An internship at xCIT, a cognitive-science lab in Luxembourg — my first taste of research, and where the pull toward the brain began.",
-    tags: ["Cognition", "Research", "Experiments"],
-    // links: [{ label: "Paper", href: "…" }],  // add when you have them
-  },
-  {
-    label: "Unity · XR",
-    icon: UnityIcon,
-    blurb:
-      "At the Fondation Campus Biotech Geneva since 2020: research games and VR tools in Unity — custom HLSL shaders, headset UX, and experiment tooling.",
-    tags: ["Unity", "C#", "HLSL", "VR", "Research"],
-    milestone: "Unity Certified Expert — Programmer",
-  },
-  {
-    label: "Backend",
-    icon: Server,
-    blurb:
-      "The layer that keeps studies running — backends, data pipelines, cloud, and CI/CD.",
-    tags: ["Laravel", "PostgreSQL", "Azure", "CI/CD", "Docker"],
-  },
-  {
-    label: "AI",
-    icon: Sparkles,
-    blurb:
-      "Lately, putting AI to work across the stack — code agents, a transcription-to-notes pipeline my team lives on, and going deeper on ML.",
-    tags: ["Claude Code", "Whisper", "Fine-tuning", "Speech models"],
-  },
-];
-
-const STEP = 100 / STOPS.length;
+const { eyebrow, stops } = journey;
+const STEP = 100 / stops.length;
 const HALF = STEP / 2;
 
 export function JourneyMap() {
-  const [active, setActive] = useState(STOPS.length - 1);
-  const stop = STOPS[active]!;
+  const [active, setActive] = useState(stops.length - 1);
+  const stop = stops[active]!;
 
   return (
     <div className="border-border/60 rounded-2xl border bg-white/[0.02] p-6 backdrop-blur sm:p-8">
       <p className="text-primary font-mono text-xs tracking-wider uppercase">
-        How I got here
+        {eyebrow}
       </p>
 
       <div className="relative mt-8 flex items-start">
@@ -106,8 +58,8 @@ export function JourneyMap() {
           <ArrowRight className="text-muted-foreground/60 ml-1 size-4 shrink-0" />
         </div>
 
-        {STOPS.map((s, i) => {
-          const Icon = s.icon;
+        {stops.map((s, i) => {
+          const Icon = ICONS[s.icon] ?? Sparkles;
           const isActive = active === i;
           const traveled = i <= active;
           return (
@@ -171,7 +123,7 @@ export function JourneyMap() {
           </p>
         )}
 
-        {stop.links && stop.links.length > 0 && (
+        {stop.links.length > 0 && (
           <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
             {stop.links.map((link) => (
               <a
