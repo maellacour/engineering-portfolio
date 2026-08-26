@@ -8,6 +8,9 @@ tag: "Unity · Research · UNIGE"
 featured: false
 order: 1
 challengeTitle: Challenge
+status: >-
+  Runs as part of a three-site cognitive study across Geneva, Haifa and Miami,
+  feeding longitudinal research on attention and anxiety.
 gallery:
   - { src: Galaxie2_ywtmek.png, alt: EcoRescue Galaxy }
   - { src: Collection_fpox3r.png, alt: EcoRescue Collection Stickers }

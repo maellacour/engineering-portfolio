@@ -45,6 +45,7 @@ const home = defineCollection({
     }),
     build: s.object({
       title: s.string(),
+      intro: s.string().optional(),
       items: s.array(s.object({ title: s.string(), body: s.string() })),
     }),
     projects: s.object({
@@ -61,6 +62,27 @@ const home = defineCollection({
       body: s.markdown(),
       image: media,
     }),
+  }),
+});
+
+const journey = defineCollection({
+  name: "Journey",
+  pattern: "journey.yml",
+  single: true,
+  schema: s.object({
+    eyebrow: s.string(),
+    stops: s.array(
+      s.object({
+        label: s.string(),
+        icon: s.enum(["ruler", "cog", "brain", "unity", "server", "sparkles"]),
+        blurb: s.string(),
+        tags: s.array(s.string()),
+        milestone: s.string().optional(),
+        links: s
+          .array(s.object({ label: s.string(), href: s.string() }))
+          .default([]),
+      }),
+    ),
   }),
 });
 
@@ -87,6 +109,10 @@ const projects = defineCollection({
       // MDX escape hatch: swap s.markdown() for s.mdx() if a project ever needs
       // custom components inline.
       challenge: s.markdown(),
+      // Case-study sections (frontmatter markdown). Default "" so an absent
+      // field compiles to empty rather than falling back to the document body.
+      status: s.markdown().default(""), // who uses it now / real-world impact
+      lessons: s.markdown().default(""), // what you took away
       path: s.path(),
     })
     .transform((data) => {
@@ -115,6 +141,6 @@ const notes = defineCollection({
 
 export default defineConfig({
   root: "content",
-  collections: { site, home, projects, notes },
+  collections: { site, home, journey, projects, notes },
   markdown: { remarkPlugins: [remarkBreaks] },
 });

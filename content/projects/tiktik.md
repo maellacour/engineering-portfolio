@@ -5,9 +5,12 @@ cover: tiktik.hero.png
 date: 2023
 publishDate: 2023
 tag: "Unity · Multiplayer · Cognitive Research"
-featured: false
+featured: true
 order: 2
 challengeTitle: Challenge
+status: >-
+  Built for a cooperative decision-making study at the University of Geneva,
+  where pairs of participants play while their choices are recorded for analysis.
 gallery:
   - { src: tiktik.cooperate, alt: Coop Multiplayer }
   - { src: tiktik.controller-support, alt: Controller support }

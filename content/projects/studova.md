@@ -5,9 +5,11 @@ cover: Studova-hero_p7swln.png
 date: 2024
 publishDate: 2025
 tag: "SaaS · Full-Stack · Research Tooling"
-featured: true
+featured: false
 order: 1
 challengeTitle: Challenge
+status: >-
+  An early-stage SaaS I'm building for research-study management.
 gallery:
   - { src: 01-landing.png, alt: Tasks Overview }
   - { src: 02-login.png, alt: Flow Designer }

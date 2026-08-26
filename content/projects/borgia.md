@@ -8,6 +8,9 @@ tag: "Web, Django, Production-scale"
 featured: false
 order: 3
 challengeTitle: What made it special
+status: >-
+  Deployed and used in production by more than 1,000 students across four ENSAM
+  campuses — Paris, Lille, Angers and Metz.
 blocks:
   - title: Overview
     body: |

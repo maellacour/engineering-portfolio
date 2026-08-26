@@ -8,6 +8,9 @@ tag: "Mobile · Flutter · Education"
 featured: true
 order: 3
 challengeTitle: Challenge
+status: >-
+  Commissioned by the Haute École de Musique de Genève and shipped to its
+  students — health education taken from research protocol to a released app.
 gallery:
   - { src: harmonie-hero.png, alt: HarMoNie Logo }
   - { src: harmonie-activities.png, alt: HarMoNie Activities }

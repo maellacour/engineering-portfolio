@@ -1,39 +1,55 @@
-import { CldImage } from "@/components/cld";
 import { home } from "@velite";
 import { Reveal } from "@/components/reveal";
+import { AboutPortrait } from "./about-portrait";
+import { AttentionGame } from "./attention-game";
+import { JourneyMap } from "./journey-map";
+import { StroopTest } from "./stroop-test";
 
 export function About() {
   const { about } = home;
   return (
     <section
       id="about"
-      className="scroll-mt-24 py-16 sm:py-20"
+      className="scroll-mt-24 py-20 sm:py-28"
       aria-labelledby="about-heading"
     >
-      <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-        <Reveal>
+      <Reveal className="mb-16">
+        <AttentionGame />
+      </Reveal>
+
+      <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
+        <Reveal className="lg:sticky lg:top-28">
+          <div className="relative mx-auto w-56 sm:w-64 lg:w-full lg:max-w-xs">
+            <div
+              aria-hidden
+              className="bg-primary/25 absolute -inset-6 -z-10 rounded-full blur-3xl"
+            />
+            <AboutPortrait src={about.image.src} alt={about.image.alt} />
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.1}>
           <h2
             id="about-heading"
-            className="font-display text-3xl font-bold tracking-tight sm:text-4xl"
+            className="text-primary font-mono text-xs tracking-[0.2em] uppercase"
           >
             {about.title}
           </h2>
-          <div
-            className="prose prose-lg prose-zinc dark:prose-invert mt-6 max-w-none"
-            dangerouslySetInnerHTML={{ __html: about.body }}
-          />
-        </Reveal>
-        <Reveal delay={0.1}>
-          <CldImage
-            src={about.image.src}
-            alt={about.image.alt}
-            width={1024}
-            height={1024}
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            className="ring-border/60 aspect-square w-full rounded-2xl object-cover shadow-lg ring-1"
-          />
+          <div className="border-primary/30 mt-6 border-l-2 pl-6 sm:pl-8">
+            <div
+              className="prose prose-lg prose-zinc dark:prose-invert [&>p:first-of-type]:text-foreground max-w-none [&>p:first-of-type]:text-xl"
+              dangerouslySetInnerHTML={{ __html: about.body }}
+            />
+          </div>
+          <div className="mt-8 max-w-lg">
+            <StroopTest />
+          </div>
         </Reveal>
       </div>
+
+      <Reveal className="mt-14">
+        <JourneyMap />
+      </Reveal>
     </section>
   );
 }

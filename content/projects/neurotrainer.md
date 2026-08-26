@@ -6,8 +6,11 @@ date: 2022
 publishDate: 2022
 tag: "VR · Unity · Medical Imaging"
 featured: true
-order: 2
+order: 1
 challengeTitle: Challenge
+status: >-
+  Built with HUG (Hôpitaux Universitaires de Genève), where clinicians use it to
+  explore MRI and CT volumes in three dimensions rather than as flat 2D slices.
 gallery:
   - { src: neurotrainer.1_ozaifn.png, alt: NeuroTrainer 1 }
   - { src: neurotrainer.2_csyefm.png, alt: NeuroTrainer 2 }

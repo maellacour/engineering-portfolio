@@ -15,6 +15,12 @@ const nextConfig = {
   images: {
     remotePatterns: [{ protocol: "https", hostname: "res.cloudinary.com" }],
   },
+  async redirects() {
+    return [
+      // The old portfolio-as-a-project page was retired; keep the URL alive.
+      { source: "/projects/portfolio", destination: "/work", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;
