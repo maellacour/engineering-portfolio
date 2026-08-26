@@ -24,6 +24,17 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Missing fields" }, { status: 400 });
   }
 
+  // Bound the payload so it can't be used to send huge emails.
+  if (name.length > 100 || email.length > 200 || message.length > 5000) {
+    return NextResponse.json({ error: "Too long" }, { status: 400 });
+  }
+
+  // Crude link-spam heuristic: silently drop messages stuffed with links.
+  if ((message.match(/https?:\/\//gi) ?? []).length > 4) {
+    console.warn("[contact] dropped likely spam", { email });
+    return NextResponse.json({ ok: true });
+  }
+
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_TO ?? site.email;
   // Resend's shared test sender works before you verify a domain (it only

@@ -67,6 +67,7 @@ export function ContactForm() {
             id="name"
             name="name"
             required
+            maxLength={100}
             autoComplete="name"
             className={fieldClass}
             placeholder="Your name"
@@ -81,6 +82,7 @@ export function ContactForm() {
             name="email"
             type="email"
             required
+            maxLength={200}
             autoComplete="email"
             className={fieldClass}
             placeholder="you@example.com"
@@ -96,6 +98,7 @@ export function ContactForm() {
           id="message"
           name="message"
           required
+          maxLength={5000}
           rows={5}
           className={`${fieldClass} resize-y`}
           placeholder="What would you like to talk about?"
