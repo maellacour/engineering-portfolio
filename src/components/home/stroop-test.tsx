@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 const COLORS = [
@@ -19,10 +19,14 @@ function makeStim() {
 }
 
 export function StroopTest() {
-  const [stim, setStim] = useState(makeStim);
+  // Deterministic first render so server and client HTML match; the real
+  // randomised trial is drawn after mount to avoid a hydration mismatch.
+  const [stim, setStim] = useState({ word: 0, ink: 1 });
   const [streak, setStreak] = useState(0);
   const [best, setBest] = useState(0);
   const [flash, setFlash] = useState<"ok" | "no" | null>(null);
+
+  useEffect(() => setStim(makeStim()), []);
 
   const pick = (i: number) => {
     if (i === stim.ink) {
