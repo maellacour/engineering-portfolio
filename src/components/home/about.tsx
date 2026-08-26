@@ -19,9 +19,6 @@ export function About() {
               className="bg-primary/25 absolute -inset-6 -z-10 rounded-full blur-3xl"
             />
             <AboutPortrait src={about.image.src} alt={about.image.alt} />
-            <p className="text-muted-foreground mt-3 text-center font-mono text-xs">
-              {about.image.alt}
-            </p>
           </div>
         </Reveal>
 
