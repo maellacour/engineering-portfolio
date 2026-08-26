@@ -8,9 +8,9 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-- The `/work` archive now leads with the featured projects in the same
-  horizontal row format as the home, with the remaining projects following in a
-  card grid under a "More work" heading.
+- The `/work` archive now presents every project in the horizontal row format
+  from the home — the featured projects first, then the rest under a "More work"
+  heading (replacing the previous card grid).
 
 ## [0.3.0] — 2026-08-26
 
