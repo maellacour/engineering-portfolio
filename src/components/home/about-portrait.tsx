@@ -51,7 +51,7 @@ export function AboutPortrait({ src, alt }: { src: string; alt: string }) {
           className="text-primary mt-3 text-center font-mono text-xs"
           aria-live="polite"
         >
-          Il jouait du piano debout 🎵🎶
+          Il jouait du code debout 🎵🎶
         </p>
       )}
     </div>
