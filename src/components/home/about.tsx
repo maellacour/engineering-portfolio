@@ -11,6 +11,10 @@ export function About() {
       className="scroll-mt-24 py-20 sm:py-28"
       aria-labelledby="about-heading"
     >
+      <Reveal className="mb-16">
+        <AttentionGame />
+      </Reveal>
+
       <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
         <Reveal className="lg:sticky lg:top-28">
           <div className="relative mx-auto w-56 sm:w-64 lg:w-full lg:max-w-xs">
@@ -37,10 +41,6 @@ export function About() {
           </div>
         </Reveal>
       </div>
-
-      <Reveal className="mt-14">
-        <AttentionGame />
-      </Reveal>
     </section>
   );
 }
