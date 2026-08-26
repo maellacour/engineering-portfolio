@@ -5,7 +5,7 @@ cover: tiktik.hero.png
 date: 2023
 publishDate: 2023
 tag: "Unity · Multiplayer · Cognitive Research"
-featured: false
+featured: true
 order: 2
 challengeTitle: Challenge
 status: >-

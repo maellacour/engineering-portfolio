@@ -6,7 +6,7 @@ date: 2022
 publishDate: 2022
 tag: "VR · Unity · Medical Imaging"
 featured: true
-order: 2
+order: 1
 challengeTitle: Challenge
 status: >-
   Built with HUG (Hôpitaux Universitaires de Genève), where clinicians use it to

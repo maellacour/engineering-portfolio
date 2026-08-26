@@ -5,7 +5,7 @@ cover: Studova-hero_p7swln.png
 date: 2024
 publishDate: 2025
 tag: "SaaS · Full-Stack · Research Tooling"
-featured: true
+featured: false
 order: 1
 challengeTitle: Challenge
 status: >-
