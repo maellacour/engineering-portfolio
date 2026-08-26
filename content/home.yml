@@ -24,8 +24,9 @@ hero:
 build:
   title: What I build
   intro: >-
-    Three threads run through the work — and they increasingly point the same
-    way: toward AI-native engineering, grounded in tools I've actually shipped.
+    Three threads run through the work: research tools that had to actually work,
+    AI in how I build, and the infrastructure underneath. The AI one is where I'm
+    headed.
   items:
     - title: Research games & XR
       body: >-

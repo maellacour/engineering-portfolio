@@ -2,6 +2,7 @@ import { home } from "@velite";
 import { Reveal } from "@/components/reveal";
 import { AboutPortrait } from "./about-portrait";
 import { AttentionGame } from "./attention-game";
+import { JourneyMap } from "./journey-map";
 
 export function About() {
   const { about } = home;
@@ -41,6 +42,10 @@ export function About() {
           </div>
         </Reveal>
       </div>
+
+      <Reveal className="mt-14">
+        <JourneyMap />
+      </Reveal>
     </section>
   );
 }
