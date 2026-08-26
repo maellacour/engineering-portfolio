@@ -6,6 +6,8 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.3.0] — 2026-08-26
+
 ### Added
 
 - Case-study project pages: an "In use" (real-world status) section and a "What
@@ -15,15 +17,29 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Contact form (name / email / message) posting to an `/api/contact` route that
   emails via Resend. Bot protection: honeypot, length caps, a link-spam
   heuristic, and optional Cloudflare Turnstile (server-verified).
-- A multiple-object-tracking mini-game in the About section (a nod to the
-  cognitive-science work), with a reduced-motion fallback.
+- An About "journey" thread, content-driven from `content/journey.yml`: the path
+  from math & geometry through ENSAM, the xCIT cognitive lab, Unity / XR (Unity
+  Certified Expert milestone), backend, and AI.
+- Easter eggs and mini-games in the About section, each with a reduced-motion
+  fallback:
+  - A multiple-object-tracking attention game (a nod to the cognitive-science
+    work).
+  - A Stroop test that unlocks a celebration and a link to NeuroTrainer after an
+    eight-answer streak.
+  - Click the portrait to play a short original piano flourish that reveals the
+    caption.
+  - A console greeting — ASCII art and contact links printed once on load.
 
 ### Changed
 
-- Removed the color tint on the hero portrait; the background glow is kept.
-- More personal, story-driven About section.
+- Rebuilt "Selected work" as alternating full-width rows with directional
+  entrance animations, image scroll-parallax, and an index watermark; featured
+  order is now NeuroTrainer → TikTik → HarMoNie.
+- Reframed "What I build" around the through-line of the work.
 - Redesigned the About and Contact sections — editorial About (glowing sticky
   portrait, accent spine, lead paragraph); Contact as a glowing form panel.
+- More personal, story-driven About copy.
+- Removed the colour tint on the hero portrait; the background glow is kept.
 
 ### Removed
 
@@ -67,6 +83,7 @@ site remains in production until the cutover (1.0.0).
 - Cloudinary image and video delivery via `next-cloudinary`.
 - Respects `prefers-reduced-motion` throughout; visible keyboard focus.
 
-[Unreleased]: https://github.com/maellacour/engineering-portfolio/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/maellacour/engineering-portfolio/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/maellacour/engineering-portfolio/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/maellacour/engineering-portfolio/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/maellacour/engineering-portfolio/releases/tag/v0.1.0
