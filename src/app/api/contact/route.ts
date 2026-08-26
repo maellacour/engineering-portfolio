@@ -35,6 +35,27 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true });
   }
 
+  // Cloudflare Turnstile — verify the token when a secret is configured.
+  const turnstileSecret = process.env.TURNSTILE_SECRET_KEY;
+  if (turnstileSecret) {
+    const token = data["cf-turnstile-response"];
+    if (typeof token !== "string" || !token) {
+      return NextResponse.json({ error: "Captcha required" }, { status: 400 });
+    }
+    const verify = await fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({ secret: turnstileSecret, response: token }),
+      },
+    );
+    const outcome = (await verify.json()) as { success?: boolean };
+    if (!outcome.success) {
+      return NextResponse.json({ error: "Captcha failed" }, { status: 400 });
+    }
+  }
+
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_TO ?? site.email;
   // Resend's shared test sender works before you verify a domain (it only

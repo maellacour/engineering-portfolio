@@ -12,8 +12,9 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   I learned" section, a sticky at-a-glance sidebar, and scroll-reveals.
 - A `/work` archive page listing every project; the home now features a curated
   set and links out to the archive.
-- Contact form (name / email / message, with a honeypot and validation) posting
-  to an `/api/contact` route that emails via Resend.
+- Contact form (name / email / message) posting to an `/api/contact` route that
+  emails via Resend. Bot protection: honeypot, length caps, a link-spam
+  heuristic, and optional Cloudflare Turnstile (server-verified).
 
 ### Changed
 
