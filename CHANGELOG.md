@@ -6,6 +6,12 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- The `/work` archive now leads with the featured projects in the same
+  horizontal row format as the home, with the remaining projects following in a
+  card grid under a "More work" heading.
+
 ## [0.3.0] — 2026-08-26
 
 ### Added
@@ -35,9 +41,6 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Rebuilt "Selected work" as alternating full-width rows with directional
   entrance animations, image scroll-parallax, and an index watermark; featured
   order is now NeuroTrainer → TikTik → HarMoNie.
-- The `/work` archive now leads with the featured projects in the same
-  horizontal row format as the home, with the remaining projects following in a
-  card grid under a "More work" heading.
 - Reframed "What I build" around the through-line of the work.
 - Redesigned the About and Contact sections — editorial About (glowing sticky
   portrait, accent spine, lead paragraph); Contact as a glowing form panel.
