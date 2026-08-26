@@ -13,24 +13,37 @@ const COLORS = [
   { name: "yellow", hex: "#eab308" },
 ];
 
-const THRESHOLD = 6;
+const THRESHOLD = 8;
 
-// A ring of confetti vectors — deterministic (no Math.random, so it is
-// hydration-safe and reproducible).
-const CONFETTI = Array.from({ length: 12 }, (_, i) => {
-  const angle = (i / 12) * Math.PI * 2;
-  return {
-    dx: `${Math.round(Math.cos(angle) * 52)}px`,
-    dy: `${Math.round(Math.sin(angle) * 52)}px`,
-    hex: COLORS[i % COLORS.length]!.hex,
-  };
-});
+// Two rings of confetti, deterministic (no Math.random, so it is hydration-safe
+// and reproducible): an outer ring that flies far and an inner ring that stays
+// tighter — giving the burst some depth.
+const RINGS = [
+  { count: 14, dist: 96, size: 9, dur: 1150, offset: 0 },
+  { count: 14, dist: 56, size: 6, dur: 900, offset: 0.22 },
+];
+const CONFETTI = RINGS.flatMap((r, ri) =>
+  Array.from({ length: r.count }, (_, k) => {
+    const angle = (k / r.count) * Math.PI * 2 + r.offset;
+    return {
+      dx: `${Math.round(Math.cos(angle) * r.dist)}px`,
+      dy: `${Math.round(Math.sin(angle) * r.dist)}px`,
+      hex: COLORS[(k + ri) % COLORS.length]!.hex,
+      size: r.size,
+      dur: r.dur,
+    };
+  }),
+);
 
-// An incongruent trial: the ink is always a different colour than the word.
-function makeStim() {
-  const word = Math.floor(Math.random() * COLORS.length);
-  let ink = word;
-  while (ink === word) ink = Math.floor(Math.random() * COLORS.length);
+// An incongruent trial (ink ≠ word) that never repeats the previous combo.
+function makeStim(prev?: { word: number; ink: number }) {
+  let word: number;
+  let ink: number;
+  do {
+    word = Math.floor(Math.random() * COLORS.length);
+    ink = word;
+    while (ink === word) ink = Math.floor(Math.random() * COLORS.length);
+  } while (prev && prev.word === word && prev.ink === ink);
   return { word, ink };
 }
 
@@ -45,7 +58,7 @@ export function StroopTest() {
   const [celebrate, setCelebrate] = useState(false);
   const reduceMotion = useReducedMotion();
 
-  useEffect(() => setStim(makeStim()), []);
+  useEffect(() => setStim((prev) => makeStim(prev)), []);
 
   const pick = (i: number) => {
     if (i === stim.ink) {
@@ -53,11 +66,11 @@ export function StroopTest() {
       setStreak(s);
       setBest((b) => Math.max(b, s));
       setFlash("ok");
-      setStim(makeStim());
+      setStim((prev) => makeStim(prev));
       if (s >= THRESHOLD && !unlocked) {
         setUnlocked(true);
         setCelebrate(true);
-        window.setTimeout(() => setCelebrate(false), 900);
+        window.setTimeout(() => setCelebrate(false), 1300);
       }
     } else {
       setStreak(0);
@@ -66,15 +79,21 @@ export function StroopTest() {
     window.setTimeout(() => setFlash(null), 350);
   };
 
+  const cheering = celebrate && !reduceMotion;
+
   return (
     <div
       className={cn(
         "border-border/60 relative rounded-xl border bg-white/[0.02] p-4 backdrop-blur transition-colors",
         flash === "ok" && "border-green-500/50",
         flash === "no" && "border-red-500/50",
+        cheering && "border-primary/60",
       )}
+      style={
+        cheering ? { animation: "stroop-cheer 1300ms ease-out" } : undefined
+      }
     >
-      {celebrate && !reduceMotion && (
+      {cheering && (
         <div
           aria-hidden
           className="pointer-events-none absolute top-1/2 left-1/2 z-10"
@@ -82,12 +101,14 @@ export function StroopTest() {
           {CONFETTI.map((c, i) => (
             <span
               key={i}
-              className="absolute size-1.5 rounded-full"
+              className="absolute rounded-full"
               style={{
+                width: c.size,
+                height: c.size,
                 backgroundColor: c.hex,
                 ["--dx" as string]: c.dx,
                 ["--dy" as string]: c.dy,
-                animation: "stroop-pop 800ms ease-out forwards",
+                animation: `stroop-pop ${c.dur}ms ease-out forwards`,
               }}
             />
           ))}
@@ -134,17 +155,23 @@ export function StroopTest() {
           initial={reduceMotion ? false : { opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="border-primary/30 mt-4 border-t pt-4"
+          className="border-primary/30 mt-4 space-y-2 border-t pt-4 text-sm"
         >
-          <p className="text-sm">
-            Six clean reads through the interference — that&apos;s your
-            attention doing real work. It&apos;s the kind of machinery I build
-            tools for.{" "}
+          <p>
+            Eight in a row — you just beat the Stroop effect eight times,
+            forcing the ink past the word your brain instinctively wants to read
+            first. That tug-of-war between automatic and controlled attention is
+            the exact territory I work in.
+          </p>
+          <p className="text-muted-foreground">
+            NeuroTrainer takes it into the operating room: a VR tool that lets
+            neurosurgeons and radiologists at HUG read MRI and CT volumes in
+            real time.{" "}
             <Link
               href="/projects/neurotrainer"
               className="text-primary inline-flex items-center gap-1 font-medium hover:underline"
             >
-              Meet NeuroTrainer <ArrowRight className="size-3.5" />
+              See the project <ArrowRight className="size-3.5" />
             </Link>
           </p>
         </motion.div>
