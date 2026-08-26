@@ -1,42 +1,58 @@
 "use client";
 
 import { useState } from "react";
-import { Brain, Rocket, Server, Sparkles } from "lucide-react";
+import { Brain, GraduationCap, Server, Sparkles, Award } from "lucide-react";
 import { UnityIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
 
-// Draft chapter copy (from CONTEXT) — plain, editable later. The last three are
-// facets of the current work at FCBG, not steps away from it.
-const STOPS = [
+// Draft content (from CONTEXT) — a "how I learned & what I picked up" thread,
+// meant to complement the prose About rather than repeat it. Editable later.
+type Stop = {
+  label: string;
+  icon: React.ComponentType<{ className?: string }>;
+  blurb: string;
+  tags: string[];
+  milestone?: string;
+  links?: { label: string; href: string }[];
+};
+
+const STOPS: Stop[] = [
   {
-    label: "Cognitive lab",
-    icon: Brain,
+    label: "ENSAM",
+    icon: GraduationCap,
     blurb:
-      "It started in a cognitive-science lab — an internship that gave me my first taste of research.",
+      "Grande École engineering at Arts et Métiers — where I learned to build with rigor. My student work on a 3D platform for Airbus won an Award for Excellence.",
+    tags: ["Engineering", "3D", "Aerospace"],
   },
   {
-    label: "Aerospace",
-    icon: Rocket,
+    label: "xCIT",
+    icon: Brain,
     blurb:
-      "Then Grande École at Arts et Métiers and a turn through aerospace; my student work even won an Airbus award.",
+      "An internship at xCIT, a cognitive-science lab in Luxembourg — my first taste of research, and where the pull toward the brain began.",
+    tags: ["Cognitive science", "Research", "Experiments"],
+    // links: [{ label: "Paper", href: "…" }],  // add when you have them
   },
   {
     label: "Unity · XR",
     icon: UnityIcon,
     blurb:
-      "In 2020 I joined the Fondation Campus Biotech Geneva, building research games and VR tools in Unity — engaging enough that participants keep coming back.",
+      "At the Fondation Campus Biotech Geneva since 2020: research games and VR tools in Unity — custom HLSL shaders, headset UX, and experiment tooling.",
+    tags: ["Unity", "C#", "HLSL", "VR"],
+    milestone: "Unity Certified Expert — Programmer",
   },
   {
-    label: "Backend & DevOps",
+    label: "Backend",
     icon: Server,
     blurb:
-      "And the layer underneath: backends, data pipelines, CI/CD, cloud — the unglamorous work that keeps multi-site studies running.",
+      "The layer that keeps studies running — backends, data pipelines, cloud, and CI/CD.",
+    tags: ["Laravel", "PostgreSQL", "Azure", "CI/CD", "Docker"],
   },
   {
     label: "AI",
     icon: Sparkles,
     blurb:
-      "Lately, AI woven across all of it: code agents, a transcription pipeline my team lives on, and training toward fine-tuning speech models.",
+      "Lately, putting AI to work across the stack — code agents, a transcription-to-notes pipeline my team lives on, and going deeper on ML.",
+    tags: ["Claude Code", "Whisper", "Fine-tuning", "Speech models"],
   },
 ];
 
@@ -45,11 +61,12 @@ const HALF = STEP / 2;
 
 export function JourneyMap() {
   const [active, setActive] = useState(STOPS.length - 1);
+  const stop = STOPS[active]!;
 
   return (
     <div className="border-border/60 rounded-2xl border bg-white/[0.02] p-6 backdrop-blur sm:p-8">
       <p className="text-primary font-mono text-xs tracking-wider uppercase">
-        The path so far
+        How I got here
       </p>
 
       <div className="relative mt-8 flex items-start">
@@ -64,17 +81,17 @@ export function JourneyMap() {
           style={{ left: `${HALF}%`, width: `${active * STEP}%` }}
         />
 
-        {STOPS.map((stop, i) => {
-          const Icon = stop.icon;
+        {STOPS.map((s, i) => {
+          const Icon = s.icon;
           const isActive = active === i;
           const traveled = i <= active;
           return (
             <button
-              key={stop.label}
+              key={s.label}
               type="button"
               onClick={() => setActive(i)}
               aria-pressed={isActive}
-              aria-label={stop.label}
+              aria-label={s.label}
               className="group relative z-10 flex flex-1 flex-col items-center gap-2 px-1"
             >
               <span
@@ -95,7 +112,7 @@ export function JourneyMap() {
                   isActive ? "text-foreground" : "text-muted-foreground",
                 )}
               >
-                {stop.label}
+                {s.label}
               </span>
             </button>
           );
@@ -106,10 +123,44 @@ export function JourneyMap() {
         className="border-border/60 bg-background/40 mt-6 rounded-xl border p-4"
         aria-live="polite"
       >
-        <h4 className="font-display font-semibold">{STOPS[active].label}</h4>
+        <h4 className="font-display font-semibold">{stop.label}</h4>
         <p className="text-muted-foreground mt-1 text-sm text-pretty">
-          {STOPS[active].blurb}
+          {stop.blurb}
         </p>
+
+        <div className="mt-3 flex flex-wrap gap-1.5">
+          {stop.tags.map((tag) => (
+            <span
+              key={tag}
+              className="border-border/60 text-muted-foreground rounded-full border px-2.5 py-0.5 font-mono text-[0.65rem]"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        {stop.milestone && (
+          <p className="text-primary mt-3 inline-flex items-center gap-1.5 text-xs font-medium">
+            <Award className="size-3.5" />
+            {stop.milestone}
+          </p>
+        )}
+
+        {stop.links && stop.links.length > 0 && (
+          <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
+            {stop.links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary text-xs underline underline-offset-2"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
