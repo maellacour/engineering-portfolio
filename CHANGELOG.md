@@ -6,9 +6,17 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Case-study project pages: an "In use" (real-world status) section and a "What
+  I learned" section, a sticky at-a-glance sidebar, and scroll-reveals.
+- A `/work` archive page listing every project; the home now features a curated
+  set and links out to the archive.
+
 ### Changed
 
 - Removed the color tint on the hero portrait; the background glow is kept.
+- More personal, story-driven About section.
 
 ## [0.2.0] — 2026-08-25
 

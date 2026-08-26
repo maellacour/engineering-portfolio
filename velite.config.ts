@@ -87,6 +87,10 @@ const projects = defineCollection({
       // MDX escape hatch: swap s.markdown() for s.mdx() if a project ever needs
       // custom components inline.
       challenge: s.markdown(),
+      // Case-study sections (frontmatter markdown). Default "" so an absent
+      // field compiles to empty rather than falling back to the document body.
+      status: s.markdown().default(""), // who uses it now / real-world impact
+      lessons: s.markdown().default(""), // what you took away
       path: s.path(),
     })
     .transform((data) => {

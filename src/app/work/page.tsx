@@ -1,40 +1,34 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { CldImage } from "@/components/cld";
-import { ArrowRight } from "lucide-react";
-import { home, projects } from "@velite";
+import { projects } from "@velite";
 import { Reveal, RevealStagger, RevealItem } from "@/components/reveal";
 
-const featured = projects
-  .filter((p) => p.featured)
-  .sort((a, b) => a.order - b.order);
-const hasArchive = projects.some((p) => !p.featured);
+export const metadata: Metadata = {
+  title: "Work",
+  description:
+    "The full archive of projects — research games, XR tools, mobile apps and the infrastructure behind them.",
+};
 
-export function Projects() {
+const all = [...projects].sort(
+  (a, b) => (b.publishDate ?? b.date) - (a.publishDate ?? a.date),
+);
+
+export default function WorkPage() {
   return (
-    <section
-      id="projects"
-      className="scroll-mt-24 py-16 sm:py-24"
-      aria-labelledby="projects-heading"
-    >
+    <section className="py-12 sm:py-16">
       <Reveal>
-        <div className="max-w-2xl">
-          <h2
-            id="projects-heading"
-            className="font-display text-3xl font-bold tracking-tight sm:text-4xl"
-          >
-            {home.projects.title}
-          </h2>
-          {home.projects.description && (
-            <p className="text-muted-foreground mt-3 text-pretty">
-              {home.projects.description}
-            </p>
-          )}
-        </div>
+        <h1 className="font-display text-4xl font-bold tracking-tight sm:text-5xl">
+          Work
+        </h1>
+        <p className="text-muted-foreground mt-3 max-w-2xl text-pretty">
+          The full archive — research games, XR tools, mobile apps, and the
+          infrastructure that keeps studies running.
+        </p>
       </Reveal>
 
-      {/* Featured — image-forward cards */}
       <RevealStagger className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {featured.map((project) => (
+        {all.map((project) => (
           <RevealItem key={project.slug} className="h-full">
             <Link
               href={project.url}
@@ -56,9 +50,9 @@ export function Projects() {
                 <span className="text-primary font-mono text-[0.66rem] tracking-wider uppercase">
                   {project.tag}
                 </span>
-                <h3 className="font-display mt-1 text-xl font-semibold">
+                <h2 className="font-display mt-1 text-xl font-semibold">
                   {project.title}
-                </h3>
+                </h2>
                 <p className="mt-1 line-clamp-2 text-sm text-white/70">
                   {project.description}
                 </p>
@@ -67,18 +61,6 @@ export function Projects() {
           </RevealItem>
         ))}
       </RevealStagger>
-
-      {hasArchive && (
-        <Reveal className="mt-8">
-          <Link
-            href="/work"
-            className="group border-border/60 hover:border-primary/40 inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-medium transition-colors"
-          >
-            View all work
-            <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-          </Link>
-        </Reveal>
-      )}
     </section>
   );
 }
