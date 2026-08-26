@@ -1,6 +1,6 @@
-import { CldImage } from "@/components/cld";
 import { home } from "@velite";
 import { Reveal } from "@/components/reveal";
+import { AboutPortrait } from "./about-portrait";
 import { AttentionGame } from "./attention-game";
 
 export function About() {
@@ -18,14 +18,7 @@ export function About() {
               aria-hidden
               className="bg-primary/25 absolute -inset-6 -z-10 rounded-full blur-3xl"
             />
-            <CldImage
-              src={about.image.src}
-              alt={about.image.alt}
-              width={640}
-              height={640}
-              sizes="(max-width: 1024px) 16rem, 20rem"
-              className="ring-border/60 aspect-square w-full rounded-2xl object-cover shadow-2xl ring-1"
-            />
+            <AboutPortrait src={about.image.src} alt={about.image.alt} />
             <p className="text-muted-foreground mt-3 text-center font-mono text-xs">
               {about.image.alt}
             </p>

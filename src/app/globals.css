@@ -177,3 +177,30 @@
 ::view-transition-old(root) {
   z-index: 1;
 }
+
+/* About-photo easter egg: a music note rising + a little portrait bob. */
+@keyframes note-rise {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0) scale(0.6);
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -3rem) scale(1.15);
+  }
+}
+@keyframes portrait-bob {
+  0%,
+  100% {
+    transform: scale(1) rotate(0);
+  }
+  30% {
+    transform: scale(1.04) rotate(-1.5deg);
+  }
+  65% {
+    transform: scale(0.99) rotate(0.5deg);
+  }
+}
