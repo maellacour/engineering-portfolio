@@ -48,18 +48,23 @@ projects:
 about:
   title: About
   body: >-
-    Grande École engineer (Arts et Métiers), I started in aerospace and found my
-    place where software meets science. Since 2020 I've led XR and full-stack
-    work at the Fondation Campus Biotech Geneva — turning research protocols into
-    software real people use: cognitive-training games, VR tools, and the
-    infrastructure that keeps multi-site studies running, with UNIGE, HUG and
-    university labs across Europe.
+    I didn't set out to build software for neuroscience. I trained as a Grande
+    École engineer at Arts et Métiers and started in aerospace — my student work
+    there even won an Airbus award. But the projects that pulled me in were
+    always the ones where code met science.
 
 
-    Lately I've been going deeper on the AI side: code agents on real codebases,
-    a transcription pipeline my team relies on, and training toward fine-tuning
-    speech models for scientific vocabulary. When I'm not building, I'm probably
-    paragliding above it.
+    In 2020 I joined the Fondation Campus Biotech Geneva and found my place:
+    turning research protocols into software people actually use. A VR tool a
+    surgeon can navigate. A game engaging enough that study participants keep
+    coming back — and reliable enough to run in a clinic. The quiet
+    infrastructure that keeps a multi-site study alive.
+
+
+    Six years in, I'm a Unity Certified Expert who has shipped across XR, mobile
+    and full stack — and I'm now going deeper on AI, putting code agents and
+    speech models to work in real engineering. When I'm not building, you'll
+    probably find me paragliding above Geneva.
   image:
     src: mael.office.square.grayscale_enkzmk.jpg
     alt: Maël Lacour in his office
