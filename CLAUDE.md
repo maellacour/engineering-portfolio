@@ -164,12 +164,21 @@ Retired formulations — do not reuse:
 - "let's build something that matters"
 - "available for consulting"
 
-Project descriptions ported from the legacy site are carried over **verbatim**.
-Do not rewrite them.
+Project descriptions were originally ported from the legacy site, but they are
+now maintained in this repo and no longer need to match the legacy wording. Edit
+them like any other copy, following the rules above.
 
 Where copy is written: plain verbs, sentence case, active voice, no filler.
 Specific beats clever. Name things the way a reader recognises them, not the
 way the system is built.
+
+The site must read as written by Maël, not by a model. Avoid the punctuation and
+phrasing people now associate with AI: no em dashes (`—`) as sentence
+punctuation (use commas, colons, semicolons, periods, or parentheses instead),
+and steer clear of tells like "not just X, but Y", forced rule-of-three lists,
+and hollow connectors ("moreover", "furthermore", "in the ever-evolving world
+of"). Ordinary hyphens in compounds (`self-paced`, `full-stack`) are fine. This
+applies to user-visible copy and, where practical, to code comments too.
 
 ---
 
