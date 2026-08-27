@@ -44,12 +44,12 @@ export function Hero() {
               "conic-gradient(from 90deg, transparent, var(--primary), transparent 62%)",
           }}
         />
-        <div className="border-border/60 relative aspect-[4/5] overflow-hidden rounded-2xl border">
+        <div className="relative aspect-square overflow-hidden rounded-2xl">
           <CldImage
             src={hero.image.src}
             alt={hero.image.alt}
-            width={900}
-            height={1125}
+            width={1024}
+            height={1024}
             sizes="(max-width: 1024px) 20rem, 40rem"
             className="h-full w-full object-cover"
             priority

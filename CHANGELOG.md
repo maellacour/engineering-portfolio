@@ -14,6 +14,16 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Reworked site copy to read as hand-written: replaced em dashes used as
   sentence punctuation with commas, colons, semicolons, or parentheses across
   all content and page text.
+- Typography: body text now in Bricolage Grotesque and labels/eyebrows in Space
+  Mono (replacing DM Sans / JetBrains Mono); display stays Space Grotesk.
+- Hero portrait now uses a borderless square frame to fit the new square profile
+  image.
+
+### Fixed
+
+- Base font was applied to `<html>` while the `--font-sans` variable is defined
+  on `<body>`, so the custom body font never took effect (fell back to the
+  system font). Apply it on `<body>` instead.
 
 ## [0.3.0] — 2026-08-26
 
