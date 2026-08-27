@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { projects } from "@velite";
 
-export const alt = "Project — Maël Lacour";
+export const alt = "Project · Maël Lacour";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

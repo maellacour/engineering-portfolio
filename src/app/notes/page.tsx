@@ -19,8 +19,8 @@ export default function NotesPage() {
         Notes
       </h1>
       <p className="text-muted-foreground mt-3 max-w-xl text-pretty">
-        Field notes on building software for research — and on putting AI to
-        work in real engineering practice.
+        Field notes on building software for research, and on putting AI to work
+        in real engineering practice.
       </p>
 
       {published.length === 0 ? (

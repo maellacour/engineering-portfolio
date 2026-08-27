@@ -55,7 +55,7 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  /* Accent — tweak --accent-h (hue) to reshuffle the whole palette; --primary,
+  /* Accent: tweak --accent-h (hue) to reshuffle the whole palette; --primary,
      --ring and the background mesh all derive from it. */
   --accent-h: 316;
   --accent-c: 0.26;
@@ -127,14 +127,11 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
-  }
-  html {
-    @apply font-sans;
+    @apply bg-background text-foreground font-sans;
   }
 }
 
-/* Immersive background mesh — the signature element. Strong in dark, absent in
+/* Immersive background mesh: the signature element. Strong in dark, absent in
    light (kept clean). --mx/--my are updated on cursor move on fine pointers. */
 :root {
   --mesh-1: transparent;

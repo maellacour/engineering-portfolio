@@ -25,7 +25,7 @@ export function Hero() {
 
   return (
     <section className="relative grid items-center gap-10 py-8 sm:py-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-12">
-      {/* Portrait — first on mobile, right on desktop */}
+      {/* Portrait: first on mobile, right on desktop */}
       <motion.div
         {...(reduce
           ? {}
@@ -44,12 +44,12 @@ export function Hero() {
               "conic-gradient(from 90deg, transparent, var(--primary), transparent 62%)",
           }}
         />
-        <div className="border-border/60 relative aspect-[4/5] overflow-hidden rounded-2xl border">
+        <div className="relative aspect-square overflow-hidden rounded-2xl">
           <CldImage
             src={hero.image.src}
             alt={hero.image.alt}
-            width={900}
-            height={1125}
+            width={1024}
+            height={1024}
             sizes="(max-width: 1024px) 20rem, 40rem"
             className="h-full w-full object-cover"
             priority

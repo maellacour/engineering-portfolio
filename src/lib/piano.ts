@@ -10,8 +10,8 @@
  *   Chord syntax:    <chord>:<beats>         e.g. "Dm:3"  "F7:1.5" (root position)
  *
  * Beats are relative to TEMPO_BPM. In 3/4, one bar = 3 beats, so a waltz bar
- * of Dm is written "Dm:3". The two timelines run independently — they just
- * both start at t=0 — so the melody doesn't have to line up bar-for-bar.
+ * of Dm is written "Dm:3". The two timelines run independently; they just
+ * both start at t=0, so the melody doesn't have to line up bar-for-bar.
  */
 
 export const TEMPO_BPM = 88;
@@ -37,7 +37,7 @@ const MELODY = `
  * each with its own octave, so inversions survive. Leave empty ("") for
  * melody only.
  *
- * (Chord symbols like "Dm:3" also work — see LEFT_HAND_IS_SYMBOLS below.)
+ * (Chord symbols like "Dm:3" also work; see LEFT_HAND_IS_SYMBOLS below.)
  */
 const LEFT_HAND = `
   C#4+E4+A4:4  D4+F4+A4:4  C#4+E4+A4:4
@@ -51,7 +51,7 @@ const LEFT_HAND_WALTZ = false;
 
 /**
  * Where each hand enters, in beats. Use these when the hands don't start
- * together — e.g. a melody pickup (anacrusis) ahead of the first full bar:
+ * together, e.g. a melody pickup (anacrusis) ahead of the first full bar:
  * leave the melody at 0 and set the left hand to the pickup's length.
  * Negative values are allowed; the whole score is shifted so nothing is cut.
  */

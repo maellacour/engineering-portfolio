@@ -1,4 +1,4 @@
-# "How I got here" — a learning & tools thread, distinct from the About prose.
+# "How I got here": a learning & tools thread, distinct from the About prose.
 # Labels describe the skill; the institution lives in the blurb.
 # icon: one of ruler | cog | brain | unity | server | sparkles
 
@@ -8,14 +8,14 @@ stops:
   - label: Math & geometry
     icon: ruler
     blurb: >-
-      Two years of classe préparatoire (PT) — physics and technology, and a lot
+      Two years of classe préparatoire (PT): physics and technology, and a lot
       of math and geometry. The groundwork everything else sits on.
     tags: [Mathematics, Geometry, Physics]
 
   - label: Engineering
     icon: cog
     blurb: >-
-      Grande École engineering at Arts et Métiers (ENSAM) — learning to build
+      Grande École engineering at Arts et Métiers (ENSAM), learning to build
       with rigor. My student work on a 3D platform for Airbus won an Award for
       Excellence.
     tags: [Engineering, 3D, Aerospace]
@@ -23,7 +23,7 @@ stops:
   - label: Cognitive science
     icon: brain
     blurb: >-
-      An internship at xCIT, a cognitive-science lab in Luxembourg — my first
+      An internship at xCIT, a cognitive-science lab in Luxembourg, my first
       taste of research, and where the pull toward the brain began.
     tags: [Cognition, Research, Experiments]
     # links: [{ label: Paper, href: "https://…" }]   # add when ready
@@ -32,20 +32,20 @@ stops:
     icon: unity
     blurb: >-
       At the Fondation Campus Biotech Geneva since 2020: research games and VR
-      tools in Unity — custom HLSL shaders, headset UX, and experiment tooling.
+      tools in Unity, with custom HLSL shaders, headset UX, and experiment tooling.
     tags: [Unity, "C#", HLSL, VR, Research]
-    milestone: Unity Certified Expert — Programmer
+    milestone: Unity Certified Expert, Programmer
 
   - label: Backend
     icon: server
     blurb: >-
-      The layer that keeps studies running — backends, data pipelines, cloud,
+      The layer that keeps studies running: backends, data pipelines, cloud,
       and CI/CD.
     tags: [API, PostgreSQL, Azure, CI/CD, Docker]
 
   - label: AI
     icon: sparkles
     blurb: >-
-      Lately, putting AI to work across the stack — code agents, a
+      Lately, putting AI to work across the stack: code agents, a
       transcription-to-notes pipeline my team lives on, and going deeper on ML.
     tags: [Claude Code, Whisper, Fine-tuning, Speech models]

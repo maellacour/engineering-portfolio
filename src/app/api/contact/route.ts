@@ -35,7 +35,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true });
   }
 
-  // Cloudflare Turnstile — verify the token when a secret is configured.
+  // Cloudflare Turnstile: verify the token when a secret is configured.
   const turnstileSecret = process.env.TURNSTILE_SECRET_KEY;
   if (turnstileSecret) {
     const token = data["cf-turnstile-response"];
@@ -64,7 +64,7 @@ export async function POST(req: Request) {
   const from = process.env.CONTACT_FROM ?? "Portfolio <onboarding@resend.dev>";
 
   if (!apiKey) {
-    // Not configured yet — log so it's visible in the server logs, don't 500.
+    // Not configured yet: log so it's visible in the server logs, don't 500.
     console.warn("[contact] RESEND_API_KEY not set; submission not emailed", {
       name,
       email,

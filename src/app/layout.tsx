@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import { DM_Sans, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import {
+  Space_Grotesk,
+  Bricolage_Grotesque,
+  Space_Mono,
+} from "next/font/google";
 import "./globals.css";
 import { defaultLocale } from "@/lib/i18n";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -8,7 +12,7 @@ import { ConsoleEgg } from "@/components/console-egg";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 
-const dmSans = DM_Sans({
+const bricolageGrotesque = Bricolage_Grotesque({
   variable: "--font-sans",
   subsets: ["latin"],
 });
@@ -18,9 +22,10 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const spaceMono = Space_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -38,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang={defaultLocale} suppressHydrationWarning>
       <body
-        className={`${dmSans.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased`}
+        className={`${bricolageGrotesque.variable} ${spaceGrotesk.variable} ${spaceMono.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"
