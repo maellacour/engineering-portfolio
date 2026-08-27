@@ -1,16 +1,16 @@
 # Home page content. Image values are Cloudinary public IDs.
 
-title: "Maël Lacour — Software for brain research | XR, AI & full stack, Geneva"
+title: "Maël Lacour: Software for brain research | XR, AI & full stack, Geneva"
 description: >-
   Geneva-based lead engineer building XR games, VR tools and data pipelines for
-  cognitive-science research — with AI woven into the practice.
+  cognitive-science research, with AI woven into the practice.
 ogImage: profil-with-headset_kltqvr.jpg
 
 hero:
   title: I build the software behind brain research.
   description: >-
     XR games, VR tools and data pipelines for cognitive-science studies in
-    Geneva — engineered with AI in the loop, from code agents to transcription
+    Geneva, engineered with AI in the loop, from code agents to transcription
     pipelines.
   image:
     src: profil-with-headset_kltqvr.jpg
@@ -29,7 +29,7 @@ build:
     - title: Research games & XR
       body: >-
         Cognitive-training games and VR tools used in studies across Geneva,
-        Haifa and Miami — engaging enough that participants come back, reliable
+        Haifa and Miami: engaging enough that participants come back, reliable
         enough for clinical settings.
     - title: AI-augmented engineering
       body: >-
@@ -51,7 +51,7 @@ about:
   title: About
   body: >-
     I didn't set out to build software for neuroscience. I trained as a Grande
-    École engineer at Arts et Métiers and started in aerospace — my work
+    École engineer at Arts et Métiers and started in aerospace. My work
     there even won an Airbus award. But the projects that pulled me in were
     always the ones where code met science.
 
@@ -59,12 +59,12 @@ about:
     In 2020 I joined the Fondation Campus Biotech Geneva and found my place:
     turning research protocols into software people actually use. A VR tool a
     surgeon can navigate. A game engaging enough that study participants keep
-    coming back — and reliable enough to run in a clinic. The quiet
+    coming back, and reliable enough to run in a clinic. The quiet
     infrastructure that keeps a multi-site study alive.
 
 
     Six years in, I'm a Unity Certified Expert who has shipped across XR, mobile
-    and full stack — and I'm now going deeper on AI, putting code agents and
+    and full stack, and I'm now going deeper on AI, putting code agents and
     speech models to work in real engineering. When I'm not building, you'll
     probably find me paragliding above Geneva.
   image:
@@ -74,7 +74,7 @@ about:
 contact:
   title: Get in touch
   body: >-
-    Open to speaking and collaborations — especially if you're working out how
+    Open to speaking and collaborations, especially if you're working out how
     AI fits into your engineering practice. I like comparing notes with anyone
     building research software or putting AI to work on real codebases.
   image:

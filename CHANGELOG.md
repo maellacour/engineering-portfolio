@@ -11,6 +11,9 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - The `/work` archive now presents every project in the horizontal row format
   from the home — the featured projects first, then the rest under a "More work"
   heading (replacing the previous card grid).
+- Reworked site copy to read as hand-written: replaced em dashes used as
+  sentence punctuation with commas, colons, semicolons, or parentheses across
+  all content and page text.
 
 ## [0.3.0] — 2026-08-26
 

@@ -6,7 +6,7 @@ import { ProjectRow } from "@/components/home/project-row";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "The full archive of projects — research games, XR tools, mobile apps and the infrastructure behind them.",
+    "The full archive of projects: research games, XR tools, mobile apps and the infrastructure behind them.",
 };
 
 const featured = projects
@@ -25,7 +25,7 @@ export default function WorkPage() {
           Work
         </h1>
         <p className="text-muted-foreground mt-3 max-w-2xl text-pretty">
-          The full archive — research games, XR tools, mobile apps, and the
+          The full archive: research games, XR tools, mobile apps, and the
           infrastructure that keeps studies running.
         </p>
       </Reveal>

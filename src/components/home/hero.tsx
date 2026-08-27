@@ -25,7 +25,7 @@ export function Hero() {
 
   return (
     <section className="relative grid items-center gap-10 py-8 sm:py-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-12">
-      {/* Portrait — first on mobile, right on desktop */}
+      {/* Portrait: first on mobile, right on desktop */}
       <motion.div
         {...(reduce
           ? {}

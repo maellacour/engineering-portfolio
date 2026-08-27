@@ -1,6 +1,6 @@
 ---
 title: Borgia
-description: "Web platform for logistics and payments across 4 ENSAM campuses. Built by 4 engineering students — deployed and actively used at scale by 1,000+ students across Paris, Lille, Angers, and Metz."
+description: "Web platform for logistics and payments across 4 ENSAM campuses. Built by 4 engineering students, deployed and actively used at scale by 1,000+ students across Paris, Lille, Angers, and Metz."
 cover: borgia_landing_cciyco.png
 date: 2016
 publishDate: 2016
@@ -10,7 +10,7 @@ order: 3
 challengeTitle: What made it special
 status: >-
   Deployed and used in production by more than 1,000 students across four ENSAM
-  campuses — Paris, Lille, Angers and Metz.
+  campuses: Paris, Lille, Angers and Metz.
 blocks:
   - title: Overview
     body: |
@@ -20,4 +20,4 @@ blocks:
       Django · PostgreSQL · Bootstrap · Git · Automated deployment tooling
 ---
 
-This wasn't a student prototype that lived only in a graded submission — it was deployed, maintained, and actively used at scale by the student community. Managing real financial transactions and logistics for thousands of users at multiple sites required building for reliability, not just for a grade. It was an early lesson in what production software actually means: ownership, edge cases, and accountability.
+This wasn't a student prototype that lived only in a graded submission; it was deployed, maintained, and actively used at scale by the student community. Managing real financial transactions and logistics for thousands of users at multiple sites required building for reliability, not just for a grade. It was an early lesson in what production software actually means: ownership, edge cases, and accountability.

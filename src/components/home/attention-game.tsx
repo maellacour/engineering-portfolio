@@ -138,7 +138,7 @@ export function AttentionGame() {
           A tiny experiment
         </p>
         <p className="text-muted-foreground mt-2 text-sm">
-          I build attention-tracking tasks — like multiple-object tracking — for
+          I build attention-tracking tasks (like multiple-object tracking) for
           cognitive-science studies. See{" "}
           <Link href="/projects/ecorescue" className="text-primary underline">
             EcoRescue
@@ -160,7 +160,7 @@ export function AttentionGame() {
             ? `Which two? (${picked.length}/2)`
             : won
               ? "Nailed it."
-              : "Not quite — harder than it looks.";
+              : "Not quite. Harder than it looks.";
 
   return (
     <div className="border-border/60 rounded-2xl border bg-white/[0.02] p-5 backdrop-blur sm:p-6">
@@ -221,7 +221,7 @@ export function AttentionGame() {
       {phase === "result" && (
         <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
           <p className="text-muted-foreground text-sm">
-            That&apos;s a multiple-object-tracking task — the kind I build for{" "}
+            That&apos;s a multiple-object-tracking task, the kind I build for{" "}
             <Link href="/projects/ecorescue" className="text-primary underline">
               cognitive-science studies
             </Link>

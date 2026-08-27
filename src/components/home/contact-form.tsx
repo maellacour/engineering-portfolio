@@ -19,7 +19,7 @@ export function ContactForm() {
     e.preventDefault();
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form));
-    if (data.company) return; // honeypot tripped — silently drop
+    if (data.company) return; // honeypot tripped, silently drop
     setStatus("submitting");
     try {
       const res = await fetch("/api/contact", {
@@ -41,7 +41,7 @@ export function ContactForm() {
         <span className="bg-primary/15 text-primary flex size-12 items-center justify-center rounded-full">
           <Check className="size-6" />
         </span>
-        <p className="mt-4 font-medium">Thanks — message sent.</p>
+        <p className="mt-4 font-medium">Thanks, message sent.</p>
         <p className="text-muted-foreground mt-1 text-sm">
           I&apos;ll get back to you soon.
         </p>
@@ -130,7 +130,7 @@ export function ContactForm() {
         </Button>
         {status === "error" && (
           <p className="text-destructive text-sm">
-            Something went wrong — try again, or email me directly.
+            Something went wrong. Try again, or email me directly.
           </p>
         )}
       </div>

@@ -17,7 +17,7 @@ const THRESHOLD = 8;
 
 // Two rings of confetti, deterministic (no Math.random, so it is hydration-safe
 // and reproducible): an outer ring that flies far and an inner ring that stays
-// tighter — giving the burst some depth.
+// tighter, giving the burst some depth.
 const RINGS = [
   { count: 14, dist: 96, size: 9, dur: 1150, offset: 0 },
   { count: 14, dist: 56, size: 6, dur: 900, offset: 0.22 },
@@ -158,10 +158,10 @@ export function StroopTest() {
           className="border-primary/30 mt-4 space-y-2 border-t pt-4 text-sm"
         >
           <p>
-            Eight in a row — you just beat the Stroop effect eight times,
-            forcing the ink past the word your brain instinctively wants to read
-            first. That tug-of-war between automatic and controlled attention is
-            the exact territory I work in.
+            Eight in a row. You just beat the Stroop effect eight times, forcing
+            the ink past the word your brain instinctively wants to read first.
+            That tug-of-war between automatic and controlled attention is the
+            exact territory I work in.
           </p>
           <p className="text-muted-foreground">
             NeuroTrainer takes it into the operating room: a VR tool that lets
