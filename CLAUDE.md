@@ -186,8 +186,8 @@ applies to user-visible copy and, where practical, to code comments too.
 
 **Direction: "Immersive."** Deep-dark canvas, indigo primary. Signature element:
 a cursor-reactive indigo mesh glow behind the hero (subtle, static-friendly on
-touch). Display type in Space Grotesk, body in DM Sans, labels/eyebrows in
-JetBrains Mono. Portrait gets a duotone/halo treatment; project cards are
+touch). Display type in Space Grotesk, body in Bricolage Grotesque, labels/eyebrows in
+Space Mono. Portrait gets a duotone/halo treatment; project cards are
 image-forward with a gradient scrim. Depth via layering and `backdrop-filter`.
 
 Guardrails that apply regardless of direction:
