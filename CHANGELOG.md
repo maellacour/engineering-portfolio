@@ -6,6 +6,14 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.4.0] — 2026-08-27
+
+### Added
+
+- Project pages: click any gallery image to open a full-screen lightbox
+  (arrow-key navigation, Escape to close, focus handling), plus
+  previous/next project navigation at the foot of each case study.
+
 ### Changed
 
 - The `/work` archive now presents every project in the horizontal row format
@@ -18,6 +26,9 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   Mono (replacing DM Sans / JetBrains Mono); display stays Space Grotesk.
 - Hero portrait now uses a borderless square frame to fit the new square profile
   image.
+- Project pages restructured: lead with the cover image and a summary, tags
+  shown as chips, and on mobile the write-up now comes before the metadata
+  sidebar.
 
 ### Fixed
 
@@ -102,7 +113,8 @@ site remains in production until the cutover (1.0.0).
 - Cloudinary image and video delivery via `next-cloudinary`.
 - Respects `prefers-reduced-motion` throughout; visible keyboard focus.
 
-[Unreleased]: https://github.com/maellacour/engineering-portfolio/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/maellacour/engineering-portfolio/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/maellacour/engineering-portfolio/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/maellacour/engineering-portfolio/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/maellacour/engineering-portfolio/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/maellacour/engineering-portfolio/releases/tag/v0.1.0
