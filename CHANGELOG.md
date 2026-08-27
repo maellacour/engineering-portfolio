@@ -6,6 +6,12 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Project pages: click any gallery image to open a full-screen lightbox
+  (arrow-key navigation, Escape to close, focus handling), plus
+  previous/next project navigation at the foot of each case study.
+
 ### Changed
 
 - The `/work` archive now presents every project in the horizontal row format
@@ -18,6 +24,9 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   Mono (replacing DM Sans / JetBrains Mono); display stays Space Grotesk.
 - Hero portrait now uses a borderless square frame to fit the new square profile
   image.
+- Project pages restructured: lead with the cover image and a summary, tags
+  shown as chips, and on mobile the write-up now comes before the metadata
+  sidebar.
 
 ### Fixed
 
