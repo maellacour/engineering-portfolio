@@ -6,6 +6,12 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- The About portrait tune no longer stacks on rapid re-clicks: while a tune is
+  still playing, another click replays the animation and caption without
+  restarting the sound.
+
 ## [0.4.0] — 2026-08-27
 
 ### Added
