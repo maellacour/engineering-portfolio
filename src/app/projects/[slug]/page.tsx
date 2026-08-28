@@ -149,7 +149,7 @@ export default async function ProjectPage({
 
       {project.video && (
         <Reveal>
-          <ProjectVideo src={project.video.src} />
+          <ProjectVideo src={project.video.src} poster={project.cover} />
         </Reveal>
       )}
 

@@ -11,6 +11,10 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - The About portrait tune no longer stacks on rapid re-clicks: while a tune is
   still playing, another click replays the animation and caption without
   restarting the sound.
+- Project videos now play reliably: replaced the video.js-based Cloudinary
+  player with a native `<video>` element, delivering a browser-friendly format
+  via `f_auto` (fixes `.mov` sources that would not play outside Safari) with
+  the project cover as its poster.
 
 ## [0.4.0] — 2026-08-27
 
