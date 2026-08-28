@@ -6,6 +6,14 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- Moved the multiple-object-tracking mini-game into its own section above
+  "Selected work", now a real interactive piece: a running score, a small
+  celebration on each solve, difficulty that ramps at 3 and 10 solves (one
+  more dot to track and one more on screen, same speed), and the EcoRescue
+  link revealed after the first win.
+
 ### Fixed
 
 - The About portrait tune no longer stacks on rapid re-clicks: while a tune is

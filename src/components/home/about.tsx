@@ -1,7 +1,6 @@
 import { home } from "@velite";
 import { Reveal } from "@/components/reveal";
 import { AboutPortrait } from "./about-portrait";
-import { AttentionGame } from "./attention-game";
 import { JourneyMap } from "./journey-map";
 import { StroopTest } from "./stroop-test";
 
@@ -13,10 +12,6 @@ export function About() {
       className="scroll-mt-24 py-20 sm:py-28"
       aria-labelledby="about-heading"
     >
-      <Reveal className="mb-16">
-        <AttentionGame />
-      </Reveal>
-
       <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
         <Reveal className="lg:sticky lg:top-28">
           <div className="relative mx-auto w-56 sm:w-64 lg:w-full lg:max-w-xs">
@@ -37,7 +32,7 @@ export function About() {
           </h2>
           <div className="border-primary/30 mt-6 border-l-2 pl-6 sm:pl-8">
             <div
-              className="prose prose-lg prose-zinc dark:prose-invert [&>p:first-of-type]:text-foreground max-w-none [&>p:first-of-type]:text-xl"
+              className="prose prose-lg prose-zinc dark:prose-invert [&>p:first-of-type]:text-foreground max-w-none text-justify hyphens-auto [&>p:first-of-type]:text-xl"
               dangerouslySetInnerHTML={{ __html: about.body }}
             />
           </div>
