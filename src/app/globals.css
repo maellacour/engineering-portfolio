@@ -141,6 +141,13 @@
   }
 }
 
+/* Smooth in-page anchor scrolling, unless the visitor prefers reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 /* Immersive background mesh: the signature element. Strong in dark, absent in
    light (kept clean). --mx/--my are updated on cursor move on fine pointers. */
 :root {
