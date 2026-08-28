@@ -5,6 +5,7 @@ import { WhatIBuild } from "@/components/home/what-i-build";
 import { AttentionSection } from "@/components/home/attention-section";
 import { Projects } from "@/components/home/projects";
 import { GoNoGoSection } from "@/components/home/go-no-go-section";
+import { StroopSection } from "@/components/home/stroop-section";
 import { About } from "@/components/home/about";
 import { Contact } from "@/components/home/contact";
 
@@ -23,6 +24,7 @@ export default function HomePage() {
       <Projects />
       <GoNoGoSection />
       <About />
+      <StroopSection />
       <Contact />
     </>
   );

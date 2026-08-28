@@ -2,7 +2,6 @@ import { home } from "@velite";
 import { Reveal } from "@/components/reveal";
 import { AboutPortrait } from "./about-portrait";
 import { JourneyMap } from "./journey-map";
-import { StroopTest } from "./stroop-test";
 
 export function About() {
   const { about } = home;
@@ -35,9 +34,6 @@ export function About() {
               className="prose prose-lg prose-zinc dark:prose-invert [&>p:first-of-type]:text-foreground max-w-none text-justify hyphens-auto [&>p:first-of-type]:text-xl"
               dangerouslySetInnerHTML={{ __html: about.body }}
             />
-          </div>
-          <div className="mt-8 max-w-lg">
-            <StroopTest />
           </div>
         </Reveal>
       </div>

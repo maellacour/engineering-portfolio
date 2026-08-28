@@ -21,6 +21,9 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   link revealed after the first win.
 - Justified the body copy across the home page and the project pages, with
   tuned hyphenation (`hyphenate-limit-chars`) so only long words break.
+- Moved the Stroop test into its own section just before the contact form; it
+  now runs as a reverse Stroop (tap the name of the ink colour), and eight in a
+  row surfaces a "Get in touch" call to action.
 
 ### Fixed
 
