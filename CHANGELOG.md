@@ -6,6 +6,12 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- A second interactive experiment on the home page: a Go/No-Go
+  response-inhibition task after "Selected work", tied to Studova through a
+  reusable project-link card.
+
 ### Changed
 
 - Moved the multiple-object-tracking mini-game into its own section above
