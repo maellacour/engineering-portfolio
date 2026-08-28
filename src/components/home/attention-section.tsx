@@ -1,12 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/reveal";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import { AttentionGame, levelFor } from "./attention-game";
+import { RelatedProjectCard } from "./related-project-card";
 
 export function AttentionSection() {
   const [wins, setWins] = useState(0);
@@ -39,27 +36,19 @@ export function AttentionSection() {
             </p>
           </Reveal>
 
-          {/* Revealed on the first solve: the running score and the EcoRescue tie-in. */}
           {wins > 0 && (
-            <div className="border-primary/20 bg-primary/5 mt-6 max-w-md rounded-xl border p-4">
+            <div className="mt-6 max-w-lg">
+              {/* Running score, on its own line. */}
               <p className="text-primary font-mono text-xs tracking-wider uppercase">
                 {wins} solved · now tracking {level.targets} of {level.dots}
               </p>
-              <p className="text-muted-foreground mt-2 text-justify text-sm text-pretty hyphens-auto">
-                EcoRescue puts this to work in a real study: an action game
-                measuring attention and anxiety in adolescents, run across
-                Geneva, Haifa and Miami.
-              </p>
-              <Link
-                href="/projects/ecorescue"
-                className={cn(
-                  buttonVariants({ variant: "default" }),
-                  "group mt-3 gap-2",
-                )}
-              >
-                See EcoRescue
-                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-              </Link>
+
+              <div className="mt-4">
+                <RelatedProjectCard
+                  slug="ecorescue"
+                  blurb="The same mechanic in a real attention & anxiety study."
+                />
+              </div>
             </div>
           )}
         </div>
