@@ -72,7 +72,7 @@ export default async function ProjectPage({
           year={project.publishDate ?? project.date}
           tag={project.tag}
         />
-        <p className="text-muted-foreground max-w-2xl text-lg leading-relaxed text-pretty">
+        <p className="text-muted-foreground max-w-2xl text-justify text-lg leading-relaxed text-pretty hyphens-auto">
           {project.description}
         </p>
       </Reveal>
@@ -114,7 +114,7 @@ export default async function ProjectPage({
               {project.challengeTitle}
             </h2>
             <div
-              className="prose prose-zinc dark:prose-invert max-w-none"
+              className="prose prose-zinc dark:prose-invert max-w-none text-justify hyphens-auto"
               dangerouslySetInnerHTML={{ __html: project.challenge }}
             />
           </Reveal>
@@ -125,7 +125,7 @@ export default async function ProjectPage({
                 In use
               </h2>
               <div
-                className="prose prose-zinc dark:prose-invert max-w-none"
+                className="prose prose-zinc dark:prose-invert max-w-none text-justify hyphens-auto"
                 dangerouslySetInnerHTML={{ __html: project.status }}
               />
             </Reveal>
@@ -137,7 +137,7 @@ export default async function ProjectPage({
                 What I learned
               </h2>
               <div
-                className="prose prose-zinc dark:prose-invert max-w-none"
+                className="prose prose-zinc dark:prose-invert max-w-none text-justify hyphens-auto"
                 dangerouslySetInnerHTML={{ __html: project.lessons }}
               />
             </Reveal>

@@ -25,7 +25,7 @@ export function Projects() {
             {home.projects.title}
           </h2>
           {home.projects.description && (
-            <p className="text-muted-foreground mt-3 text-pretty">
+            <p className="text-muted-foreground mt-3 text-justify text-pretty hyphens-auto">
               {home.projects.description}
             </p>
           )}

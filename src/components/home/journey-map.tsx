@@ -101,7 +101,7 @@ export function JourneyMap() {
         aria-live="polite"
       >
         <h4 className="font-display font-semibold">{stop.label}</h4>
-        <p className="text-muted-foreground mt-1 text-sm text-pretty">
+        <p className="text-muted-foreground mt-1 text-justify text-sm text-pretty hyphens-auto">
           {stop.blurb}
         </p>
 

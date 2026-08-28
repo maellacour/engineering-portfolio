@@ -17,7 +17,7 @@ export function WhatIBuild() {
           {build.title}
         </h2>
         {build.intro && (
-          <p className="text-muted-foreground mt-3 max-w-2xl text-pretty">
+          <p className="text-muted-foreground mt-3 max-w-2xl text-justify text-pretty hyphens-auto">
             {build.intro}
           </p>
         )}
@@ -35,7 +35,7 @@ export function WhatIBuild() {
             <h3 className="font-display mt-3 text-xl font-semibold">
               {item.title}
             </h3>
-            <p className="text-muted-foreground mt-2 leading-relaxed">
+            <p className="text-muted-foreground mt-2 text-justify leading-relaxed hyphens-auto">
               {item.body}
             </p>
           </RevealItem>

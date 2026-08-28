@@ -129,6 +129,16 @@
   body {
     @apply bg-background text-foreground font-sans;
   }
+  /* Justified copy relies on hyphens: auto to avoid rivers of whitespace, but
+     only break genuinely long words (>=9 chars, with enough letters on each
+     side) so the ragged edge doesn't fill with hyphens. */
+  .hyphens-auto {
+    hyphenate-limit-chars: 9 4 3;
+    -webkit-hyphenate-limit-before: 4;
+    -webkit-hyphenate-limit-after: 3;
+    -webkit-hyphenate-limit-lines: 2;
+    hyphenate-limit-lines: 2;
+  }
 }
 
 /* Immersive background mesh: the signature element. Strong in dark, absent in

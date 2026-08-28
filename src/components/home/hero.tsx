@@ -75,7 +75,7 @@ export function Hero() {
 
         <motion.p
           {...rise(0.25)}
-          className="text-muted-foreground mt-6 max-w-lg text-xl leading-relaxed text-pretty"
+          className="text-muted-foreground mt-6 max-w-lg text-justify text-xl leading-relaxed text-pretty hyphens-auto"
         >
           {hero.description}
         </motion.p>

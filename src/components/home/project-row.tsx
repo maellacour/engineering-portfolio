@@ -99,7 +99,7 @@ export function ProjectRow({
             {project.title}
           </Link>
         </h3>
-        <p className="text-muted-foreground mt-3 text-pretty">
+        <p className="text-muted-foreground mt-3 text-justify text-pretty hyphens-auto">
           {project.description}
         </p>
 

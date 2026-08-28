@@ -13,6 +13,8 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   celebration on each solve, difficulty that ramps at 3 and 10 solves (one
   more dot to track and one more on screen, same speed), and the EcoRescue
   link revealed after the first win.
+- Justified the body copy across the home page and the project pages, with
+  tuned hyphenation (`hyphenate-limit-chars`) so only long words break.
 
 ### Fixed
 
