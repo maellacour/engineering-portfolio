@@ -28,22 +28,28 @@ export function levelFor(wins: number): Level {
 }
 
 type Phase = "idle" | "show" | "move" | "answer" | "result";
+type Cheer = "win" | "level";
 type Dot = { x: number; y: number; vx: number; vy: number };
 
-// Deterministic confetti burst (no Math.random, so it is hydration-safe; it
-// only renders after a win anyway).
+// Deterministic confetti (no Math.random, so it is hydration-safe; it only
+// renders after a win anyway). Two sizes: a normal solve and a bigger burst
+// for a level-up.
 const CONFETTI_COLORS = ["#6366f1", "#22c55e", "#eab308", "#f97316"];
-const CONFETTI = Array.from({ length: 16 }, (_, k) => {
-  const angle = (k / 16) * Math.PI * 2;
-  const dist = 68 + (k % 2) * 26;
-  return {
-    dx: `${Math.round(Math.cos(angle) * dist)}px`,
-    dy: `${Math.round(Math.sin(angle) * dist)}px`,
-    color: CONFETTI_COLORS[k % CONFETTI_COLORS.length]!,
-    size: 6 + (k % 2) * 3,
-    dur: 900 + (k % 3) * 120,
-  };
-});
+function makeConfetti(count: number, base: number, spread: number, big = 0) {
+  return Array.from({ length: count }, (_, k) => {
+    const angle = (k / count) * Math.PI * 2;
+    const dist = base + (k % 2) * spread;
+    return {
+      dx: `${Math.round(Math.cos(angle) * dist)}px`,
+      dy: `${Math.round(Math.sin(angle) * dist)}px`,
+      color: CONFETTI_COLORS[k % CONFETTI_COLORS.length]!,
+      size: 6 + (k % 2) * 3 + big,
+      dur: 900 + (k % 3) * 120,
+    };
+  });
+}
+const CONFETTI = makeConfetti(16, 68, 26);
+const CONFETTI_BIG = makeConfetti(30, 96, 42, 2);
 
 function pickTargets(total: number, count: number) {
   const idx = [...Array(total).keys()];
@@ -66,7 +72,8 @@ export function AttentionGame({
   const [phase, setPhase] = useState<Phase>("idle");
   const [targets, setTargets] = useState<number[]>([]);
   const [picked, setPicked] = useState<number[]>([]);
-  const [celebrate, setCelebrate] = useState(false);
+  const [cheer, setCheer] = useState<Cheer | null>(null);
+  const [levelNote, setLevelNote] = useState<string | null>(null);
 
   const dots = useRef<Dot[]>([]);
   const els = useRef<(HTMLButtonElement | null)[]>([]);
@@ -117,7 +124,8 @@ export function AttentionGame({
     const lvl = levelFor(wins);
     setLevel(lvl);
     setPicked([]);
-    setCelebrate(false);
+    setCheer(null);
+    setLevelNote(null);
     clearTimeout(cheerTimer.current);
     seed(lvl.dots);
     setTargets(pickTargets(lvl.dots, lvl.targets));
@@ -174,8 +182,19 @@ export function AttentionGame({
       setPhase("result");
       if (won) {
         onWin();
-        setCelebrate(true);
-        cheerTimer.current = setTimeout(() => setCelebrate(false), 1200);
+        // This win crosses a difficulty threshold when the next level differs.
+        const nextLevel = levelFor(wins + 1);
+        const leveledUp = nextLevel.dots !== level.dots;
+        setCheer(leveledUp ? "level" : "win");
+        if (leveledUp) {
+          setLevelNote(
+            `Level up: now tracking ${nextLevel.targets} dots among ${nextLevel.dots}, same speed.`,
+          );
+        }
+        cheerTimer.current = setTimeout(
+          () => setCheer(null),
+          leveledUp ? 1800 : 1200,
+        );
       }
     }
   };
@@ -218,7 +237,9 @@ export function AttentionGame({
       <div
         className={cn(
           "border-border/60 bg-background/40 relative mx-auto mt-4 aspect-square w-full max-w-sm overflow-hidden rounded-full border",
-          celebrate && "animate-[stroop-cheer_1s_ease]",
+          cheer === "level"
+            ? "animate-[mot-levelup_1s_ease]"
+            : cheer === "win" && "animate-[stroop-cheer_1s_ease]",
         )}
       >
         {Array.from({ length: level.dots }).map((_, i) => {
@@ -252,12 +273,12 @@ export function AttentionGame({
           );
         })}
 
-        {celebrate && (
+        {cheer && (
           <div
             aria-hidden
             className="pointer-events-none absolute top-1/2 left-1/2 z-10"
           >
-            {CONFETTI.map((c, i) => (
+            {(cheer === "level" ? CONFETTI_BIG : CONFETTI).map((c, i) => (
               <span
                 key={i}
                 className="absolute rounded-full"
@@ -288,11 +309,16 @@ export function AttentionGame({
       </div>
 
       {phase === "result" && (
-        <div className="mt-4 flex justify-end">
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
+          {levelNote && (
+            <p className="text-primary max-w-[16rem] text-sm font-medium">
+              {levelNote}
+            </p>
+          )}
           <button
             type="button"
             onClick={start}
-            className="border-border/60 hover:border-primary/40 rounded-full border px-4 py-2 text-sm font-medium transition-colors"
+            className="bg-primary text-primary-foreground ml-auto rounded-full px-5 py-2 text-sm font-semibold transition-transform hover:-translate-y-0.5"
           >
             Play again
           </button>
