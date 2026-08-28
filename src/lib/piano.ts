@@ -14,7 +14,7 @@
  * both start at t=0, so the melody doesn't have to line up bar-for-bar.
  */
 
-export const TEMPO_BPM = 88;
+const TEMPO_BPM = 88;
 const BEAT = 60 / TEMPO_BPM;
 
 /** Set to 0 to mute the left-hand accompaniment. */
@@ -235,12 +235,6 @@ const SCORE: Voice[] = rawScore.map((v) => ({
   ...v,
   start: v.start - earliest,
 }));
-
-/** Beats per timeline, exported so a test can assert the bars line up. */
-export const BEAT_TOTALS = {
-  melody: parseMelody(MELODY).reduce((n, s) => n + s.beats, 0),
-  leftHand: leftHandSteps.reduce((n, s) => n + s.beats, 0),
-};
 
 /** Total playback length in ms (plus a little tail), for syncing UI. */
 export const TUNE_MS =

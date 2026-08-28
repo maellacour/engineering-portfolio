@@ -129,6 +129,23 @@
   body {
     @apply bg-background text-foreground font-sans;
   }
+  /* Justified copy relies on hyphens: auto to avoid rivers of whitespace, but
+     only break genuinely long words (>=9 chars, with enough letters on each
+     side) so the ragged edge doesn't fill with hyphens. */
+  .hyphens-auto {
+    hyphenate-limit-chars: 9 4 3;
+    -webkit-hyphenate-limit-before: 4;
+    -webkit-hyphenate-limit-after: 3;
+    -webkit-hyphenate-limit-lines: 2;
+    hyphenate-limit-lines: 2;
+  }
+}
+
+/* Smooth in-page anchor scrolling, unless the visitor prefers reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 /* Immersive background mesh: the signature element. Strong in dark, absent in
@@ -229,5 +246,22 @@
     opacity: 0;
     transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy)))
       scale(0.3);
+  }
+}
+
+/* Attention game level-up: a stronger pulse + glow than a normal solve. */
+@keyframes mot-levelup {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 transparent;
+  }
+  25% {
+    transform: scale(1.07);
+    box-shadow: 0 0 66px 14px
+      oklch(var(--accent-l) var(--accent-c) var(--accent-h) / 0.72);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 transparent;
   }
 }

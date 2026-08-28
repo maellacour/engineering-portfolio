@@ -6,6 +6,37 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.5.0] — 2026-08-28
+
+### Added
+
+- A second interactive experiment on the home page: a Go/No-Go
+  response-inhibition task after "Selected work", tied to Studova through a
+  reusable project-link card.
+
+### Changed
+
+- Moved the multiple-object-tracking mini-game into its own section above
+  "Selected work", now a real interactive piece: a running score, a small
+  celebration on each solve, difficulty that ramps at 3 and 10 solves (one
+  more dot to track and one more on screen, same speed), and the EcoRescue
+  link revealed after the first win.
+- Justified the body copy across the home page and the project pages, with
+  tuned hyphenation (`hyphenate-limit-chars`) so only long words break.
+- Moved the Stroop test into its own section just before the contact form; it
+  now runs as a reverse Stroop (tap the name of the ink colour), and eight in a
+  row surfaces a "Get in touch" call to action.
+
+### Fixed
+
+- The About portrait tune no longer stacks on rapid re-clicks: while a tune is
+  still playing, another click replays the animation and caption without
+  restarting the sound.
+- Project videos now play reliably: replaced the video.js-based Cloudinary
+  player with a native `<video>` element, delivering a browser-friendly format
+  via `f_auto` (fixes `.mov` sources that would not play outside Safari) with
+  the project cover as its poster.
+
 ## [0.4.0] — 2026-08-27
 
 ### Added
@@ -113,7 +144,8 @@ site remains in production until the cutover (1.0.0).
 - Cloudinary image and video delivery via `next-cloudinary`.
 - Respects `prefers-reduced-motion` throughout; visible keyboard focus.
 
-[Unreleased]: https://github.com/maellacour/engineering-portfolio/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/maellacour/engineering-portfolio/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/maellacour/engineering-portfolio/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/maellacour/engineering-portfolio/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/maellacour/engineering-portfolio/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/maellacour/engineering-portfolio/compare/v0.1.0...v0.2.0

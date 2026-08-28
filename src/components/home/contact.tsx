@@ -32,7 +32,7 @@ export function Contact() {
                 {contact.title}
               </h2>
               <div
-                className="prose prose-zinc dark:prose-invert mt-4 max-w-none"
+                className="prose prose-zinc dark:prose-invert mt-4 max-w-none text-justify hyphens-auto"
                 dangerouslySetInnerHTML={{ __html: contact.body }}
               />
 

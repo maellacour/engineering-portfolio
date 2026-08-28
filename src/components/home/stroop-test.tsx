@@ -1,9 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { motion, useReducedMotion } from "motion/react";
+import { useReducedMotion } from "motion/react";
 import { cn } from "@/lib/utils";
 
 const COLORS = [
@@ -47,7 +45,7 @@ function makeStim(prev?: { word: number; ink: number }) {
   return { word, ink };
 }
 
-export function StroopTest() {
+export function StroopTest({ onUnlock }: { onUnlock?: () => void }) {
   // Deterministic first render so server and client HTML match; the real
   // randomised trial is drawn after mount to avoid a hydration mismatch.
   const [stim, setStim] = useState({ word: 0, ink: 1 });
@@ -70,6 +68,7 @@ export function StroopTest() {
       if (s >= THRESHOLD && !unlocked) {
         setUnlocked(true);
         setCelebrate(true);
+        onUnlock?.();
         window.setTimeout(() => setCelebrate(false), 1300);
       }
     } else {
@@ -124,58 +123,36 @@ export function StroopTest() {
         </span>
       </div>
 
-      <div className="mt-3 flex flex-wrap items-center gap-x-6 gap-y-3">
-        <span
-          className="text-2xl font-bold tracking-wide tabular-nums sm:text-3xl"
-          style={{ color: COLORS[stim.ink]!.hex }}
-        >
-          {COLORS[stim.word]!.name.toUpperCase()}
-        </span>
+      <div className="mt-4">
+        {/* Stimulus: the colour word, large, printed in an incongruent ink. */}
+        <div className="flex min-h-[4.5rem] items-center justify-center">
+          <span
+            className="text-5xl font-bold tracking-wide sm:text-6xl"
+            style={{ color: COLORS[stim.ink]!.hex }}
+          >
+            {COLORS[stim.word]!.name.toUpperCase()}
+          </span>
+        </div>
 
-        <div className="flex gap-2">
+        {/* Reverse Stroop: respond with the *name* of the ink colour. */}
+        <div className="mt-5 grid grid-cols-2 gap-2">
           {COLORS.map((c, i) => (
             <button
               key={c.name}
               type="button"
               onClick={() => pick(i)}
               aria-label={`ink is ${c.name}`}
-              className="focus-visible:ring-ring size-8 rounded-full ring-1 ring-black/20 transition-transform hover:scale-110 focus-visible:ring-2 focus-visible:outline-none"
-              style={{ backgroundColor: c.hex }}
-            />
+              className="border-border/60 hover:border-primary/60 focus-visible:ring-ring rounded-lg border px-3 py-2 font-mono text-sm tracking-wider uppercase transition-colors focus-visible:ring-2 focus-visible:outline-none"
+            >
+              {c.name}
+            </button>
           ))}
         </div>
 
-        <span className="text-muted-foreground text-xs">
-          Tap the ink colour, not the word.
-        </span>
+        <p className="text-muted-foreground mt-3 text-center text-xs">
+          Tap the name of the ink colour, not the word.
+        </p>
       </div>
-
-      {unlocked && (
-        <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="border-primary/30 mt-4 space-y-2 border-t pt-4 text-sm"
-        >
-          <p>
-            Eight in a row. You just beat the Stroop effect eight times, forcing
-            the ink past the word your brain instinctively wants to read first.
-            That tug-of-war between automatic and controlled attention is the
-            exact territory I work in.
-          </p>
-          <p className="text-muted-foreground">
-            NeuroTrainer takes it into the operating room: a VR tool that lets
-            neurosurgeons and radiologists at HUG read MRI and CT volumes in
-            real time.{" "}
-            <Link
-              href="/projects/neurotrainer"
-              className="text-primary inline-flex items-center gap-1 font-medium hover:underline"
-            >
-              See the project <ArrowRight className="size-3.5" />
-            </Link>
-          </p>
-        </motion.div>
-      )}
     </div>
   );
 }

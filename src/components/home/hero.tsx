@@ -75,7 +75,7 @@ export function Hero() {
 
         <motion.p
           {...rise(0.25)}
-          className="text-muted-foreground mt-6 max-w-lg text-xl leading-relaxed text-pretty"
+          className="text-muted-foreground mt-6 max-w-lg text-justify text-xl leading-relaxed text-pretty hyphens-auto"
         >
           {hero.description}
         </motion.p>
@@ -116,8 +116,8 @@ export function Hero() {
         </motion.div>
 
         <a
-          href="#projects"
-          aria-label="Jump to projects"
+          href="#build"
+          aria-label="Scroll to what I build"
           className="text-muted-foreground hover:text-foreground mt-10 hidden items-center gap-2 font-mono text-xs tracking-wide uppercase transition-colors lg:inline-flex"
         >
           <ArrowDown className="size-4 animate-bounce motion-reduce:animate-none" />
