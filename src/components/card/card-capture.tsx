@@ -3,11 +3,9 @@
 import { useState } from "react";
 import { Check, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { fieldClass } from "@/lib/form";
 
 type Status = "idle" | "submitting" | "success" | "error";
-
-const fieldClass =
-  "w-full rounded-lg border border-border/60 bg-background/40 px-3.5 py-2.5 text-sm outline-none transition-colors placeholder:text-muted-foreground/70 focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/30";
 
 // Optional, low-friction capture for the few warm contacts who'd rather I reach
 // out. Reuses the existing /api/contact (Resend) endpoint, which needs a
@@ -18,7 +16,8 @@ export function CardCapture() {
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
-    const { name, email } = Object.fromEntries(new FormData(form));
+    const { name, email, company } = Object.fromEntries(new FormData(form));
+    if (company) return; // honeypot tripped, silently drop
     setStatus("submitting");
     try {
       const res = await fetch("/api/contact", {
@@ -49,26 +48,52 @@ export function CardCapture() {
 
   return (
     <form onSubmit={onSubmit} className="space-y-3">
+      {/* honeypot */}
+      <input
+        type="text"
+        name="company"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden
+        className="hidden"
+      />
+
       <div className="grid gap-3 sm:grid-cols-2">
-        <input
-          name="name"
-          required
-          maxLength={100}
-          autoComplete="name"
-          className={fieldClass}
-          placeholder="Your name"
-          aria-label="Your name"
-        />
-        <input
-          name="email"
-          type="email"
-          required
-          maxLength={200}
-          autoComplete="email"
-          className={fieldClass}
-          placeholder="you@example.com"
-          aria-label="Your email"
-        />
+        <div>
+          <label
+            htmlFor="card-name"
+            className="mb-1.5 block text-sm font-medium"
+          >
+            Name
+          </label>
+          <input
+            id="card-name"
+            name="name"
+            required
+            maxLength={100}
+            autoComplete="name"
+            className={fieldClass}
+            placeholder="Your name"
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="card-email"
+            className="mb-1.5 block text-sm font-medium"
+          >
+            Email
+          </label>
+          <input
+            id="card-email"
+            name="email"
+            type="email"
+            required
+            maxLength={200}
+            autoComplete="email"
+            className={fieldClass}
+            placeholder="you@example.com"
+          />
+        </div>
       </div>
       <div className="flex items-center gap-3">
         <Button type="submit" size="lg" disabled={status === "submitting"}>
