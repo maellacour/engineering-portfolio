@@ -16,6 +16,13 @@ const site = defineCollection({
   schema: s.object({
     email: s.string(),
     resumeUrl: s.string(),
+    card: s.object({
+      name: s.string(),
+      role: s.string(),
+      org: s.string(),
+      location: s.string(),
+      tagline: s.string(),
+    }),
     socials: s.array(
       s.object({
         label: s.string(),
