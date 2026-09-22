@@ -111,10 +111,13 @@ export default function CardPage() {
         )}
       </div>
 
-      {/* Optional, low-friction capture */}
-      <div className="border-border/60 mt-10 w-full border-t pt-8 text-left">
-        <p className="text-muted-foreground mb-3 text-sm">
-          Rather I reach out? Leave your details.
+      {/* Reciprocal action: their details, secondary to the CTAs above */}
+      <div className="border-border/60 mt-10 w-full rounded-2xl border bg-white/[0.02] p-5 text-left backdrop-blur sm:p-6">
+        <h2 className="font-display text-lg font-semibold tracking-tight">
+          Want me to follow up?
+        </h2>
+        <p className="text-muted-foreground mt-1 mb-4 text-sm">
+          Leave your details and I&apos;ll reach out.
         </p>
         <CardCapture />
       </div>
