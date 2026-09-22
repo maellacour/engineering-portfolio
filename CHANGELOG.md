@@ -6,6 +6,18 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.0.0] — 2026-09-22
+
+### Added
+
+- A digital contact card at `/card` for people met at events: portrait,
+  one-line pitch, an "Add me to your contacts" button that downloads a vCard
+  built from `content/site.yml`, a Connect-on-LinkedIn action, and an optional
+  low-friction form (reusing the existing contact endpoint) for warm leads who'd
+  rather be contacted back. A printable QR code (`public/card-qr.svg` / `.png`)
+  points to it. No phone number by design: a vCard is public to everyone who
+  scans it.
+
 ## [0.5.0] — 2026-08-28
 
 ### Added

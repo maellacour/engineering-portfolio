@@ -184,9 +184,10 @@ applies to user-visible copy and, where practical, to code comments too.
 
 ## Design
 
-**Direction: "Immersive."** Deep-dark canvas, indigo primary. Signature element:
-a cursor-reactive indigo mesh glow behind the hero (subtle, static-friendly on
-touch). Display type in Space Grotesk, body in Bricolage Grotesque, labels/eyebrows in
+**Direction: "Immersive."** Deep-dark canvas, magenta-pink primary (accent hue
+316 in `globals.css`; the whole palette derives from `--accent-h`). Signature
+element: a cursor-reactive magenta mesh glow behind the hero (subtle,
+static-friendly on touch). Display type in Space Grotesk, body in Bricolage Grotesque, labels/eyebrows in
 Space Mono. Portrait gets a duotone/halo treatment; project cards are
 image-forward with a gradient scrim. Depth via layering and `backdrop-filter`.
 
