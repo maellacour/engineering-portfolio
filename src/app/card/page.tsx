@@ -37,7 +37,7 @@ export default function CardPage() {
         />
         <div className="relative aspect-square overflow-hidden rounded-full">
           <CldImage
-            src="mael-vr-round.png"
+            src={card.image}
             alt={card.name}
             width={512}
             height={512}

@@ -12,6 +12,7 @@ card:
   org: Fondation Campus Biotech Geneva
   location: Geneva, Switzerland
   tagline: I build the software behind brain research.
+  image: mael-vr-round.png # Cloudinary public ID for the portrait
 
 socials:
   - label: LinkedIn

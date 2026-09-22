@@ -22,6 +22,7 @@ const site = defineCollection({
       org: s.string(),
       location: s.string(),
       tagline: s.string(),
+      image: s.string(),
     }),
     socials: s.array(
       s.object({
