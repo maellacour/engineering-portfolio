@@ -24,7 +24,7 @@ export default function CardPage() {
     "text-muted-foreground hover:text-foreground inline-flex items-center gap-2 text-sm font-medium transition-colors focus-visible:ring-ring rounded-md focus-visible:ring-2 focus-visible:outline-none";
 
   return (
-    <section className="mx-auto flex max-w-md flex-col items-center py-8 text-center sm:py-14">
+    <section className="mx-auto -mt-6 flex max-w-md flex-col items-center py-6 text-center sm:mt-0 sm:py-14">
       {/* Portrait with the site's signature halo */}
       <div className="relative w-40 sm:w-48">
         <div
