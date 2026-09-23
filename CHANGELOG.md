@@ -6,6 +6,20 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Vercel Analytics (`@vercel/analytics`) for cookieless, privacy-friendly
+  visitor metrics.
+- A kill switch for the contact and capture forms
+  (`NEXT_PUBLIC_CONTACT_ENABLED`): set it to `false` to stop the API from
+  sending and hide the forms, falling back to the direct email and LinkedIn
+  links.
+
+### Changed
+
+- The contact card now fits a single mobile screen: smaller portrait, tighter
+  vertical spacing, a two-column capture form, and a centred submit button.
+
 ## [1.0.0] — 2026-09-22
 
 ### Added
