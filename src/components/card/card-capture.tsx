@@ -58,7 +58,7 @@ export function CardCapture() {
         className="hidden"
       />
 
-      <div className="grid gap-3 sm:grid-cols-2">
+      <div className="grid grid-cols-2 gap-3">
         <div>
           <label
             htmlFor="card-name"
@@ -95,7 +95,7 @@ export function CardCapture() {
           />
         </div>
       </div>
-      <div className="flex items-center gap-3">
+      <div className="flex items-center justify-center gap-3">
         <Button type="submit" size="lg" disabled={status === "submitting"}>
           <Send className="size-4" />
           {status === "submitting" ? "Sending…" : "Send it to me"}
