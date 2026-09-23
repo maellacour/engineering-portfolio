@@ -1,8 +1,14 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { site } from "@velite";
+import { contactEnabled } from "@/lib/contact";
 
 export async function POST(req: Request) {
+  // Kill switch: refuse outright when contact is turned off.
+  if (!contactEnabled) {
+    return NextResponse.json({ error: "Contact disabled" }, { status: 503 });
+  }
+
   let data: Record<string, unknown>;
   try {
     data = await req.json();
