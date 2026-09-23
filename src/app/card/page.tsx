@@ -6,6 +6,7 @@ import { CldImage } from "@/components/cld";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { buttonVariants } from "@/components/ui/button";
 import { CardCapture } from "@/components/card/card-capture";
+import { contactEnabled } from "@/lib/contact";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -112,15 +113,17 @@ export default function CardPage() {
       </div>
 
       {/* Reciprocal action: their details, secondary to the CTAs above */}
-      <div className="border-border/60 mt-5 w-full rounded-2xl border bg-white/[0.02] p-4 text-left backdrop-blur sm:mt-10 sm:p-6">
-        <h2 className="font-display text-lg font-semibold tracking-tight">
-          Want me to follow up?
-        </h2>
-        <p className="text-muted-foreground mt-1 mb-3 text-sm">
-          Leave your details and I&apos;ll reach out.
-        </p>
-        <CardCapture />
-      </div>
+      {contactEnabled && (
+        <div className="border-border/60 mt-5 w-full rounded-2xl border bg-white/[0.02] p-4 text-left backdrop-blur sm:mt-10 sm:p-6">
+          <h2 className="font-display text-lg font-semibold tracking-tight">
+            Want me to follow up?
+          </h2>
+          <p className="text-muted-foreground mt-1 mb-3 text-sm">
+            Leave your details and I&apos;ll reach out.
+          </p>
+          <CardCapture />
+        </div>
+      )}
     </section>
   );
 }

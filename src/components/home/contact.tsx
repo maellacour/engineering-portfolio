@@ -2,6 +2,8 @@ import { Mail } from "lucide-react";
 import { home, site } from "@velite";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { Reveal } from "@/components/reveal";
+import { contactEnabled } from "@/lib/contact";
+import { cn } from "@/lib/utils";
 import { ContactForm } from "./contact-form";
 
 const socialIcons = { linkedin: LinkedinIcon, github: GithubIcon } as const;
@@ -20,7 +22,12 @@ export function Contact() {
             aria-hidden
             className="bg-primary/20 absolute -top-24 -right-16 -z-10 size-72 rounded-full blur-3xl"
           />
-          <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
+          <div
+            className={cn(
+              "grid gap-10 lg:gap-16",
+              contactEnabled && "lg:grid-cols-2",
+            )}
+          >
             <div>
               <span className="text-primary font-mono text-xs tracking-[0.2em] uppercase">
                 Contact
@@ -69,7 +76,7 @@ export function Contact() {
               </div>
             </div>
 
-            <ContactForm />
+            {contactEnabled && <ContactForm />}
           </div>
         </div>
       </Reveal>
