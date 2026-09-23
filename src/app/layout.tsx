@@ -11,6 +11,7 @@ import { BackgroundMesh } from "@/components/background-mesh";
 import { ConsoleEgg } from "@/components/console-egg";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { Analytics } from "@vercel/analytics/next";
 
 const bricolageGrotesque = Bricolage_Grotesque({
   variable: "--font-sans",
@@ -59,6 +60,7 @@ export default function RootLayout({
             <SiteFooter />
           </div>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
